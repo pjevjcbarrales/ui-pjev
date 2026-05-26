@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI_PJEV — Sistema de diseño SIAF-PJEV</title>
+<link rel="stylesheet" href="_shared.css">
+<style>
+  .hero {
+    background: var(--pjev-verde-oscuro);
+    border-radius: 10px; padding: 36px 40px; margin-bottom: 36px;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: 'UI_PJEV';
+    position: absolute; right: -10px; top: -20px;
+    font-size: 120px; font-weight: 900; color: rgba(222,172,80,0.06);
+    line-height: 1; pointer-events: none; user-select: none;
+  }
+  .hero-tag   { font-size: 11px; font-weight: 700; color: var(--pjev-dorado); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .hero-title { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 10px; }
+  .hero-desc  { font-size: 14px; color: rgba(255,255,255,0.7); max-width: 560px; line-height: 1.6; margin-bottom: 24px; }
+  .hero-meta  { display: flex; gap: 24px; flex-wrap: wrap; }
+  .hero-stat  { display: flex; flex-direction: column; gap: 2px; }
+  .hero-stat-num   { font-size: 22px; font-weight: 700; color: var(--pjev-dorado); }
+  .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+  .section-h2 {
+    font-size: 18px; font-weight: 700; color: var(--pjev-verde-oscuro);
+    margin-bottom: 6px;
+  }
+  .section-sub { font-size: 13px; color: var(--pjev-texto-muted); margin-bottom: 20px; line-height: 1.5; }
+
+  /* Cards de grupo */
+  .group-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
+  .group-card {
+    background: var(--pjev-blanco); border: 1px solid var(--pjev-borde); border-radius: 8px;
+    overflow: hidden; text-decoration: none; color: inherit;
+    transition: box-shadow 0.15s, transform 0.15s;
+    display: flex; flex-direction: column;
+  }
+  .group-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+  .group-card-header {
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid var(--pjev-borde);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .group-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--pjev-verde-oscuro);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .group-name  { font-size: 14px; font-weight: 700; color: var(--pjev-verde-oscuro); }
+  .group-count { font-size: 11px; color: var(--pjev-texto-muted); margin-top: 2px; }
+  .group-links { padding: 12px 20px; display: flex; flex-direction: column; gap: 2px; flex: 1; }
+  .group-link  {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 5px 8px; border-radius: 5px; font-size: 12px; color: var(--pjev-texto);
+    text-decoration: none; transition: background 0.1s;
+  }
+  .group-link:hover { background: var(--pjev-crema); color: var(--pjev-verde-oscuro); }
+  .group-link-id { font-size: 10px; font-family: var(--font-mono); color: var(--pjev-texto-muted); }
+
+  /* Mapa de arquitectura */
+  .arch-intro { font-size: 13px; color: var(--pjev-texto); line-height: 1.7; margin-bottom: 20px; }
+
+  /* Flujo */
+  .flow { display: flex; align-items: center; gap: 0; margin: 24px 0; flex-wrap: wrap; }
+  .flow-step {
+    background: var(--pjev-blanco); border: 1px solid var(--pjev-borde); border-radius: 8px;
+    padding: 14px 18px; min-width: 160px; flex: 1;
+  }
+  .flow-step-num { font-size: 10px; font-weight: 700; color: var(--pjev-dorado-dim); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+  .flow-step-name { font-size: 13px; font-weight: 700; color: var(--pjev-verde-oscuro); }
+  .flow-step-desc { font-size: 11px; color: var(--pjev-texto-muted); margin-top: 3px; }
+  .flow-step.current { border-color: var(--pjev-verde-oscuro); border-width: 2px; background: #f0f7f4; }
+  .flow-arrow { color: var(--pjev-borde); font-size: 20px; padding: 0 8px; flex-shrink: 0; }
+
+  /* Orden de construcción */
+  .build-order { display: flex; flex-direction: column; gap: 8px; }
+  .build-row {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--pjev-blanco); border: 1px solid var(--pjev-borde);
+    border-radius: 6px; padding: 12px 16px;
+  }
+  .build-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--pjev-verde-oscuro); color: #fff;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .build-file { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--pjev-verde-oscuro); min-width: 220px; }
+  .build-covers { font-size: 11px; color: var(--pjev-texto-muted); flex: 1; }
+  .build-covers code { font-family: var(--font-mono); font-size: 10px; background: #ede9e1; padding: 1px 4px; border-radius: 3px; color: var(--pjev-verde-oscuro); margin-right: 3px; }
+  .build-blocker { font-size: 10px; color: var(--pjev-warning-text); background: var(--pjev-warning-bg); border: 1px solid var(--pjev-warning-borde); padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+  .build-blocker.ok { color: var(--pjev-success-text); background: var(--pjev-success-bg); border-color: var(--pjev-success-borde); }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a class="topbar-brand" href="index.html">
+    <div class="topbar-logo">PJ</div>
+    <span class="topbar-name">SIAF-PJEV</span>
+  </a>
+  <div class="topbar-pipe"></div>
+  <div class="topbar-crumb">
+    <span class="topbar-crumb-item active">UI_PJEV</span>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-version">v1.0.0</span>
+    <span class="topbar-badge">Dix Consultoría</span>
+  </div>
+</header>
+
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <nav class="doc-sidebar">
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Inicio</div>
+      <a class="sidebar-link active" href="index.html">Guía maestra</a>
+      <a class="sidebar-link" href="index.html#arquitectura">Arquitectura</a>
+      <a class="sidebar-link" href="index.html#orden">Orden de construcción</a>
+      <a class="sidebar-link" href="index.html#migracion">Migración del sistema</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Foundations</div>
+      <a class="sidebar-link" href="f01-tokens.html">Tokens CSS <span class="sidebar-id">F-01</span></a>
+      <a class="sidebar-link" href="f02-tipografia.html">Tipografía <span class="sidebar-id">F-02</span></a>
+      <a class="sidebar-link" href="f03-espaciado.html">Espaciado <span class="sidebar-id">F-03</span></a>
+      <a class="sidebar-link" href="f04-iconografia.html">Iconografía <span class="sidebar-id">F-04</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Base Elements → SiafButton.tsx</div>
+      <a class="sidebar-link" href="b01-button-primary.html">Button Primary <span class="sidebar-id">B-01</span></a>
+      <a class="sidebar-link" href="b02-button-secondary.html">Button Secondary <span class="sidebar-id">B-02</span></a>
+      <a class="sidebar-link" href="b03-button-danger.html">Button Danger <span class="sidebar-id">B-03</span></a>
+      <a class="sidebar-link" href="b04-button-ghost.html">Button Ghost <span class="sidebar-id">B-04</span></a>
+      <a class="sidebar-link" href="b05-button-icon.html">Button Icon only <span class="sidebar-id">B-05</span></a>
+      <a class="sidebar-link" href="b06-button-loading.html">Button Loading <span class="sidebar-id">B-06</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Base Elements → SiafInput.tsx</div>
+      <a class="sidebar-link" href="b07-input-text.html">Input text <span class="sidebar-id">B-07</span></a>
+      <a class="sidebar-link" href="b08-input-date.html">Input date <span class="sidebar-id">B-08</span></a>
+      <a class="sidebar-link" href="b09-input-number.html">Input number <span class="sidebar-id">B-09</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Base Elements → varios</div>
+      <a class="sidebar-link" href="b10-select.html">Select <span class="sidebar-id">B-10</span></a>
+      <a class="sidebar-link" href="b11-textarea.html">Textarea <span class="sidebar-id">B-11</span></a>
+      <a class="sidebar-link" href="b12-checkbox.html">Checkbox <span class="sidebar-id">B-12</span></a>
+      <a class="sidebar-link" href="b13-badge-estatus.html">Badge estatus <span class="sidebar-id">B-13</span></a>
+      <a class="sidebar-link" href="b14-badge-tipo.html">Badge tipo <span class="sidebar-id">B-14</span></a>
+      <a class="sidebar-link" href="b15-chip.html">Chip tipo <span class="sidebar-id">B-15</span></a>
+      <a class="sidebar-link" href="b16-label.html">Label de campo <span class="sidebar-id">B-16</span></a>
+      <a class="sidebar-link" href="b17-divider.html">Divider <span class="sidebar-id">B-17</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Feedback → SiafToast / SiafModal</div>
+      <a class="sidebar-link" href="fb01-toast-success.html">Toast Success <span class="sidebar-id">FB-01</span></a>
+      <a class="sidebar-link" href="fb02-toast-error.html">Toast Error <span class="sidebar-id">FB-02</span></a>
+      <a class="sidebar-link" href="fb03-toast-warning.html">Toast Warning <span class="sidebar-id">FB-03</span></a>
+      <a class="sidebar-link" href="fb04-toast-info.html">Toast Info <span class="sidebar-id">FB-04</span></a>
+      <a class="sidebar-link" href="fb05-modal-confirm.html">Modal Confirmación <span class="sidebar-id">FB-05</span></a>
+      <a class="sidebar-link" href="fb06-modal-destructivo.html">Modal Destructivo <span class="sidebar-id">FB-06</span></a>
+      <a class="sidebar-link" href="fb07-modal-form.html">Modal Formulario <span class="sidebar-id">FB-07</span></a>
+      <a class="sidebar-link" href="fb08-empty-state.html">Empty state <span class="sidebar-id">FB-08</span></a>
+      <a class="sidebar-link" href="fb09-skeleton.html">Loading skeleton <span class="sidebar-id">FB-09</span></a>
+      <a class="sidebar-link" href="fb10-error-inline.html">Error inline <span class="sidebar-id">FB-10</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Layout → SiafPageHeader / SiafCard</div>
+      <a class="sidebar-link" href="lc02-page-header.html">Page Header <span class="sidebar-id">LC-02</span></a>
+      <a class="sidebar-link" href="lc03-card.html">Card / Panel <span class="sidebar-id">LC-03</span></a>
+      <a class="sidebar-link" href="lc04-section.html">Section <span class="sidebar-id">LC-04</span></a>
+      <a class="sidebar-link" href="lc05-barra-ventana.html">Barra de ventana <span class="sidebar-id">LC-05</span></a>
+      <a class="sidebar-link" href="lc06-barra-acciones.html">Barra de acciones <span class="sidebar-id">LC-06</span></a>
+      <a class="sidebar-link" href="lc07-toolbar-grid.html">Toolbar de grid <span class="sidebar-id">LC-07</span></a>
+      <a class="sidebar-link" href="lc08-form-group.html">Form group <span class="sidebar-id">LC-08</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Data Grid → SiafDataGrid.tsx</div>
+      <a class="sidebar-link" href="dg01-grid-base.html">Grid base <span class="sidebar-id">DG-01</span></a>
+      <a class="sidebar-link" href="dg02-grid-acciones.html">Grid con acciones <span class="sidebar-id">DG-02</span></a>
+      <a class="sidebar-link" href="dg03-columna-sort.html">Columna ordenable <span class="sidebar-id">DG-03</span></a>
+      <a class="sidebar-link" href="dg04-col-toggle.html">Mostrar/ocultar cols <span class="sidebar-id">DG-04</span></a>
+      <a class="sidebar-link" href="dg05-totales.html">Fila de totales <span class="sidebar-id">DG-05</span></a>
+      <a class="sidebar-link" href="dg06-paginacion.html">Paginación <span class="sidebar-id">DG-06</span></a>
+      <a class="sidebar-link" href="dg07-empty.html">Empty state grid <span class="sidebar-id">DG-07</span></a>
+      <a class="sidebar-link" href="dg08-skeleton.html">Grid skeleton <span class="sidebar-id">DG-08</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Formularios — Plantillas</div>
+      <a class="sidebar-link" href="fm01-leer.html">Leer sin acciones <span class="sidebar-id">FM-01</span></a>
+      <a class="sidebar-link" href="fm02-leer-acciones.html">Leer con acciones <span class="sidebar-id">FM-02</span></a>
+      <a class="sidebar-link" href="fm03-crud-simple.html">CRUD Simple <span class="sidebar-id">FM-03</span></a>
+      <a class="sidebar-link" href="fm04-crud-compuesto.html">CRUD Compuesto <span class="sidebar-id">FM-04</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Páginas modelo</div>
+      <a class="sidebar-link" href="pm01-dashboard.html">Dashboard <span class="sidebar-id">PM-01</span></a>
+      <a class="sidebar-link" href="pm02-404.html">Error 404 <span class="sidebar-id">PM-02</span></a>
+      <a class="sidebar-link" href="pm03-403.html">Error 403 <span class="sidebar-id">PM-03</span></a>
+      <a class="sidebar-link" href="pm04-500.html">Error 500 <span class="sidebar-id">PM-04</span></a>
+      <a class="sidebar-link" href="pm05-login.html">Login <span class="sidebar-id">PM-05</span></a>
+      <a class="sidebar-link" href="pm06-sin-ejercicio.html">Sin ejercicio <span class="sidebar-id">PM-06</span></a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="doc-main">
+  <div class="doc-main-inner">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-tag">UI_PJEV · Sistema de diseño</div>
+      <h1 class="hero-title">Librería de componentes<br>del SIAF-PJEV</h1>
+      <p class="hero-desc">
+        Un sistema de diseño vivo construido desde el código real del sistema.
+        Todo lo que ves aquí es el estándar que reemplaza los inline styles
+        dispersos en las 35 pantallas actuales.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-stat"><span class="hero-stat-num">12</span><span class="hero-stat-label">archivos TSX</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">57</span><span class="hero-stat-label">elementos documentados</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">35</span><span class="hero-stat-label">pantallas a migrar</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">6</span><span class="hero-stat-label">grupos de componentes</span></div>
+      </div>
+    </div>
+
+    <!-- FLUJO COMPLETO -->
+    <div class="doc-section">
+      <div class="section-h2">¿En qué punto del proyecto estamos?</div>
+      <p class="section-sub">El sistema de diseño es el paso 1. Sin él, no hay criterio de aceptación para los componentes que Daryl construye.</p>
+      <div class="flow">
+        <div class="flow-step current">
+          <div class="flow-step-num">Paso 1 · Ahora</div>
+          <div class="flow-step-name">Documentación HTML</div>
+          <div class="flow-step-desc">Este sitio. Define el estándar visual antes de escribir código.</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-step-num">Paso 2 · Daryl</div>
+          <div class="flow-step-name">Construir la librería</div>
+          <div class="flow-step-desc">12 archivos .tsx en <code style="font-family:var(--font-mono);font-size:10px;">components/ui/</code></div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-step-num">Paso 3 · Cristian</div>
+          <div class="flow-step-name">Migrar pantallas</div>
+          <div class="flow-step-desc">35 pantallas reemplazan inline styles por componentes.</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-step-num">Paso 4 · Daryl</div>
+          <div class="flow-step-name">Galería viva</div>
+          <div class="flow-step-desc">
+            <code style="font-family:var(--font-mono);font-size:10px;">/ui-pjev</code> en Next.js con componentes reales corriendo.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARQUITECTURA DE LA LIBRERÍA -->
+    <div class="doc-section" id="arquitectura">
+      <div class="section-h2">Arquitectura de la librería</div>
+      <p class="section-sub">
+        Los 57 elementos documentados en este sitio no son 57 archivos TSX.
+        Son <strong>variantes y estados</strong> de 12 componentes.
+        Cada componente agrupa elementos relacionados bajo una sola prop <code class="inline-code">variant</code>.
+      </p>
+
+      <div class="callout info">
+        <span class="callout-icon">ℹ</span>
+        <div>
+          <strong>Regla de importación única.</strong>
+          Toda la librería se importa desde <code>@/components/ui/</code>.
+          Ningún componente duplica funcionalidad de otro.
+          Si algo no está en la librería, se agrega aquí antes de programarlo.
+        </div>
+      </div>
+
+      <table class="tsx-map">
+        <thead>
+          <tr>
+            <th style="width:220px;">Archivo TSX</th>
+            <th style="width:140px;">Elementos que cubre</th>
+            <th>Qué exporta</th>
+            <th style="width:120px;">Estado actual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="file">SiafButton.tsx</td>
+            <td class="covers"><code>B-01</code><code>B-02</code><code>B-03</code><code>B-04</code><code>B-05</code><code>B-06</code></td>
+            <td style="font-size:12px;">Botón con <code>variant</code>, <code>size</code>, <code>loading</code>, <code>icon</code>, <code>iconPosition</code></td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafInput.tsx</td>
+            <td class="covers"><code>B-07</code><code>B-08</code><code>B-09</code></td>
+            <td style="font-size:12px;">Input con <code>type</code>, estados error/disabled/focus, formato moneda</td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafSelect.tsx</td>
+            <td class="covers"><code>B-10</code></td>
+            <td style="font-size:12px;">Select con mismos estados que SiafInput</td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafTextarea.tsx</td>
+            <td class="covers"><code>B-11</code></td>
+            <td style="font-size:12px;">Textarea con contador de caracteres opcional</td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafCheckbox.tsx</td>
+            <td class="covers"><code>B-12</code></td>
+            <td style="font-size:12px;">Checkbox con label integrado y estado indeterminate</td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafBadge.tsx</td>
+            <td class="covers"><code>B-13</code><code>B-14</code><code>B-15</code></td>
+            <td style="font-size:12px;">Badge con <code>variant</code> para estatus, tipo y chip</td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafFormGroup.tsx</td>
+            <td class="covers"><code>B-16</code><code>LC-08</code></td>
+            <td style="font-size:12px;">Wrapper label + control + error. Envuelve cualquier input.</td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafToast.tsx</td>
+            <td class="covers"><code>FB-01</code><code>FB-02</code><code>FB-03</code><code>FB-04</code></td>
+            <td style="font-size:12px;">Migración y estandarización de <code>lib/toast.tsx</code> existente</td>
+            <td><span class="status-badge existe">Migrar</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafModal.tsx</td>
+            <td class="covers"><code>FB-05</code><code>FB-06</code><code>FB-07</code></td>
+            <td style="font-size:12px;">Extensión de <code>CancelModal.tsx</code> con variantes confirm/destructive/form</td>
+            <td><span class="status-badge existe">Migrar</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafDataGrid.tsx</td>
+            <td class="covers"><code>DG-01</code><code>DG-02</code><code>DG-03</code><code>DG-04</code><code>DG-05</code><code>DG-06</code><code>DG-07</code><code>DG-08</code></td>
+            <td style="font-size:12px;">Grid TanStack Table con paginación, acciones, totales, sort, skeleton</td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafPageHeader.tsx</td>
+            <td class="covers"><code>LC-02</code><code>LC-05</code><code>LC-06</code><code>LC-07</code></td>
+            <td style="font-size:12px;">Encabezado de página: breadcrumb + título + barra de ventana + barra de acciones + toolbar</td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+          <tr>
+            <td class="file">SiafCard.tsx</td>
+            <td class="covers"><code>LC-03</code><code>LC-04</code></td>
+            <td style="font-size:12px;">Contenedor con título de sección y padding estándar</td>
+            <td><span class="status-badge nuevo">Nuevo</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ORDEN DE CONSTRUCCIÓN -->
+    <div class="doc-section" id="orden">
+      <div class="section-h2">Orden de construcción recomendado</div>
+      <p class="section-sub">
+        Algunos componentes dependen de otros. Respetar este orden evita retrabajos.
+        Daryl debe completar cada fila antes de pasar a la siguiente.
+      </p>
+
+      <div class="build-order">
+        <div class="build-row">
+          <div class="build-num">1</div>
+          <div class="build-file">_pjev-tokens.css</div>
+          <div class="build-covers">Variables CSS globales extraídas de <code>globals.css</code>. <strong>Bloquea todo lo demás.</strong></div>
+          <span class="build-blocker">Bloquea: todos</span>
+        </div>
+        <div class="build-row">
+          <div class="build-num">2</div>
+          <div class="build-file">SiafButton.tsx</div>
+          <div class="build-covers">Primer componente. Se usa en todos los formularios y grids.</div>
+          <span class="build-blocker">Bloquea: SiafPageHeader, SiafModal, SiafDataGrid</span>
+        </div>
+        <div class="build-row">
+          <div class="build-num">3</div>
+          <div class="build-file">SiafInput.tsx + SiafSelect.tsx + SiafTextarea.tsx + SiafCheckbox.tsx</div>
+          <div class="build-covers">Controles de formulario base. Todos siguen el mismo patrón de estados.</div>
+          <span class="build-blocker">Bloquea: SiafFormGroup, FM-03, FM-04</span>
+        </div>
+        <div class="build-row">
+          <div class="build-num">4</div>
+          <div class="build-file">SiafBadge.tsx + SiafFormGroup.tsx</div>
+          <div class="build-covers">Utilitarios que se usan dentro del grid y los formularios.</div>
+          <span class="build-blocker">Bloquea: SiafDataGrid</span>
+        </div>
+        <div class="build-row">
+          <div class="build-num">5</div>
+          <div class="build-file">SiafToast.tsx</div>
+          <div class="build-covers">Migración de <code>lib/toast.tsx</code> existente. Solo se estandariza, no se reescribe.</div>
+          <span class="build-blocker ok">Sin dependencias</span>
+        </div>
+        <div class="build-row">
+          <div class="build-num">6</div>
+          <div class="build-file">SiafModal.tsx</div>
+          <div class="build-covers">Extensión de <code>CancelModal.tsx</code> existente con nuevas variantes.</div>
+          <span class="build-blocker">Requiere: SiafButton</span>
+        </div>
+        <div class="build-row">
+          <div class="build-num">7</div>
+          <div class="build-file">SiafDataGrid.tsx</div>
+          <div class="build-covers">El componente más complejo. Requiere todos los anteriores.</div>
+          <span class="build-blocker">Requiere: SiafButton, SiafBadge, SiafToast</span>
+        </div>
+        <div class="build-row">
+          <div class="build-num">8</div>
+          <div class="build-file">SiafCard.tsx + SiafPageHeader.tsx</div>
+          <div class="build-covers">Contenedores de layout. Se construyen al final porque envuelven todo lo demás.</div>
+          <span class="build-blocker">Requiere: SiafButton</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MIGRACIÓN -->
+    <div class="doc-section" id="migracion">
+      <div class="section-h2">Cómo migrar una pantalla existente</div>
+      <p class="section-sub">Una vez que los 12 componentes existen, Cristian sigue este proceso para cada pantalla.</p>
+
+      <div class="callout warning">
+        <span class="callout-icon">⚠</span>
+        <div>
+          <strong>Regla de migración progresiva.</strong>
+          No se migran todas las pantallas a la vez. Se migra una, se valida con Eunice, y se avanza.
+          El orden recomendado es: primero los catálogos simples (CFG), luego Contabilidad, luego Presupuesto y Financiero.
+        </div>
+      </div>
+
+      <div class="code-wrap">
+        <div class="code-tabs"><button class="code-tab active">Proceso por pantalla</button></div>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode('code-migracion', this)">Copiar</button>
+<pre id="code-migracion"><span class="cm">// PASO 1 — Eliminar el objeto COLORS o constantes de estilos locales</span>
+<span class="cm">// ✕ Borrar esto:</span>
+<span class="kw">const</span> <span class="nm">COLORS</span> <span class="op">=</span> <span class="tx">{ green: </span><span class="str">'#285847'</span><span class="tx">, ... }</span>
+
+<span class="cm">// PASO 2 — Importar los componentes de la librería</span>
+<span class="kw">import</span> <span class="tx">{ SiafButton }   from </span><span class="str">'@/components/ui/SiafButton'</span>
+<span class="kw">import</span> <span class="tx">{ SiafDataGrid } from </span><span class="str">'@/components/ui/SiafDataGrid'</span>
+<span class="kw">import</span> <span class="tx">{ SiafBadge }    from </span><span class="str">'@/components/ui/SiafBadge'</span>
+<span class="kw">import</span> <span class="tx">{ SiafPageHeader } from </span><span class="str">'@/components/ui/SiafPageHeader'</span>
+
+<span class="cm">// PASO 3 — Reemplazar botones inline</span>
+<span class="cm">// ✕ Antes:</span>
+<span class="tx">&lt;button style={{ background: COLORS.green, color: </span><span class="str">'#fff'</span><span class="tx">, ... }}&gt;Guardar&lt;/button&gt;</span>
+<span class="cm">// ✓ Ahora:</span>
+<span class="tx">&lt;</span><span class="tp">SiafButton</span> <span class="at">variant</span><span class="op">=</span><span class="str">"primary"</span> <span class="at">loading</span><span class="tx">={submitting}&gt;Guardar&lt;/</span><span class="tp">SiafButton</span><span class="tx">&gt;</span>
+
+<span class="cm">// PASO 4 — Reemplazar la tabla manual por SiafDataGrid</span>
+<span class="cm">// ✕ Antes: 60+ líneas de &lt;table&gt;&lt;thead&gt;... con estilos inline</span>
+<span class="cm">// ✓ Ahora:</span>
+<span class="tx">&lt;</span><span class="tp">SiafDataGrid</span>
+  <span class="at">columns</span><span class="tx">={columns}</span>
+  <span class="at">data</span><span class="tx">={rows}</span>
+  <span class="at">pagination</span><span class="tx">={meta}</span>
+  <span class="at">onPageChange</span><span class="tx">={load}</span>
+  <span class="at">loading</span><span class="tx">={loading}</span>
+<span class="tx">/&gt;</span>
+
+<span class="cm">// PASO 5 — Reemplazar badges de estatus</span>
+<span class="cm">// ✕ Antes: objeto ESTATUS_BADGE con bg/color por página</span>
+<span class="cm">// ✓ Ahora:</span>
+<span class="tx">&lt;</span><span class="tp">SiafBadge</span> <span class="at">variant</span><span class="tx">={estatus.toLowerCase()}&gt;{estatus}&lt;/</span><span class="tp">SiafBadge</span><span class="tx">&gt;</span>
+
+<span class="cm">// PASO 6 — Envolver en SiafPageHeader</span>
+<span class="tx">&lt;</span><span class="tp">SiafPageHeader</span>
+  <span class="at">breadcrumb</span><span class="tx">={[</span><span class="str">'Contabilidad'</span><span class="tx">, </span><span class="str">'Registro'</span><span class="tx">, </span><span class="str">'Pólizas'</span><span class="tx">]}</span>
+  <span class="at">title</span><span class="tx">=</span><span class="str">"Pólizas contables"</span>
+  <span class="at">actions</span><span class="tx">={&lt;</span><span class="tp">SiafButton</span> <span class="at">variant</span><span class="tx">=</span><span class="str">"primary"</span> <span class="at">icon</span><span class="tx">={Plus}&gt;Nueva póliza&lt;/</span><span class="tp">SiafButton</span><span class="tx">&gt;}</span>
+<span class="tx">/&gt;</span></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÍNDICE POR GRUPO -->
+    <div class="doc-section">
+      <div class="section-h2">Índice de elementos por grupo</div>
+      <p class="section-sub">Navega directamente al elemento que necesitas.</p>
+
+      <div class="group-grid">
+        <!-- Foundations -->
+        <a class="group-card" href="f01-tokens.html">
+          <div class="group-card-header">
+            <div class="group-icon">🎨</div>
+            <div>
+              <div class="group-name">Foundations</div>
+              <div class="group-count">4 elementos · Base de todo el sistema</div>
+            </div>
+          </div>
+          <div class="group-links">
+            <span class="group-link">Tokens CSS <span class="group-link-id">F-01</span></span>
+            <span class="group-link">Tipografía <span class="group-link-id">F-02</span></span>
+            <span class="group-link">Espaciado <span class="group-link-id">F-03</span></span>
+            <span class="group-link">Iconografía · Lucide React <span class="group-link-id">F-04</span></span>
+          </div>
+        </a>
+
+        <!-- Base Elements -->
+        <a class="group-card" href="b01-button-primary.html">
+          <div class="group-card-header">
+            <div class="group-icon">🖱</div>
+            <div>
+              <div class="group-name">Base Elements</div>
+              <div class="group-count">17 elementos · 5 archivos TSX</div>
+            </div>
+          </div>
+          <div class="group-links">
+            <span class="group-link">SiafButton (primary, secondary, danger, ghost, icon, loading) <span class="group-link-id">B-01…06</span></span>
+            <span class="group-link">SiafInput (text, date, number) <span class="group-link-id">B-07…09</span></span>
+            <span class="group-link">SiafSelect, Textarea, Checkbox <span class="group-link-id">B-10…12</span></span>
+            <span class="group-link">SiafBadge (estatus, tipo, chip) <span class="group-link-id">B-13…15</span></span>
+            <span class="group-link">Label, Divider <span class="group-link-id">B-16…17</span></span>
+          </div>
+        </a>
+
+        <!-- Feedback -->
+        <a class="group-card" href="fb01-toast-success.html">
+          <div class="group-card-header">
+            <div class="group-icon">💬</div>
+            <div>
+              <div class="group-name">Feedback</div>
+              <div class="group-count">10 elementos · 2 archivos TSX</div>
+            </div>
+          </div>
+          <div class="group-links">
+            <span class="group-link">SiafToast (success, error, warning, info) <span class="group-link-id">FB-01…04</span></span>
+            <span class="group-link">SiafModal (confirmación, destructivo, formulario) <span class="group-link-id">FB-05…07</span></span>
+            <span class="group-link">Empty state, Loading skeleton, Error inline <span class="group-link-id">FB-08…10</span></span>
+          </div>
+        </a>
+
+        <!-- Layout -->
+        <a class="group-card" href="lc02-page-header.html">
+          <div class="group-card-header">
+            <div class="group-icon">📐</div>
+            <div>
+              <div class="group-name">Layout Containers</div>
+              <div class="group-count">7 elementos · 2 archivos TSX</div>
+            </div>
+          </div>
+          <div class="group-links">
+            <span class="group-link">SiafPageHeader (breadcrumb, título, barras) <span class="group-link-id">LC-02, 05, 06, 07</span></span>
+            <span class="group-link">SiafCard · Panel contenedor <span class="group-link-id">LC-03</span></span>
+            <span class="group-link">Section · título de sección <span class="group-link-id">LC-04</span></span>
+            <span class="group-link">SiafFormGroup · label + control + error <span class="group-link-id">LC-08</span></span>
+          </div>
+        </a>
+
+        <!-- Data Grid -->
+        <a class="group-card" href="dg01-grid-base.html">
+          <div class="group-card-header">
+            <div class="group-icon">📊</div>
+            <div>
+              <div class="group-name">Data Grid</div>
+              <div class="group-count">8 elementos · 1 archivo TSX</div>
+            </div>
+          </div>
+          <div class="group-links">
+            <span class="group-link">SiafDataGrid base y con columna acciones <span class="group-link-id">DG-01, 02</span></span>
+            <span class="group-link">Columna ordenable · mostrar/ocultar columnas <span class="group-link-id">DG-03, 04</span></span>
+            <span class="group-link">Fila de totales · Paginación <span class="group-link-id">DG-05, 06</span></span>
+            <span class="group-link">Empty state · Skeleton de carga <span class="group-link-id">DG-07, 08</span></span>
+          </div>
+        </a>
+
+        <!-- Formularios -->
+        <a class="group-card" href="fm01-leer.html">
+          <div class="group-card-header">
+            <div class="group-icon">📋</div>
+            <div>
+              <div class="group-name">Formularios — Plantillas</div>
+              <div class="group-count">4 plantillas · compuestas de los anteriores</div>
+            </div>
+          </div>
+          <div class="group-links">
+            <span class="group-link">FM-01 · Leer sin acciones en fila <span class="group-link-id">FM-01</span></span>
+            <span class="group-link">FM-02 · Leer con columna de acciones <span class="group-link-id">FM-02</span></span>
+            <span class="group-link">FM-03 · CRUD Simple (catálogos) <span class="group-link-id">FM-03</span></span>
+            <span class="group-link">FM-04 · CRUD Compuesto (pólizas, presupuesto) <span class="group-link-id">FM-04</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="doc-footer">
+      <div></div>
+      <div class="foot-center">
+        UI_PJEV · Sistema de diseño SIAF-PJEV<br>
+        <span class="foot-gold">Dix Consultoría</span> · OAJ-DGA · 2026
+      </div>
+      <div class="foot-nav" style="align-items:flex-end;">
+        <span class="foot-nav-label">Siguiente →</span>
+        <a class="foot-nav-link" href="f01-tokens.html">F-01 · Tokens CSS</a>
+      </div>
+    </div>
+
+  </div>
+  </main>
+</div>
+<script src="_shared.js"></script>
+</body>
+</html>

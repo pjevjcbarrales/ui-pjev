@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B-13 · Badge — Estatus — UI_PJEV</title>
+<link rel="stylesheet" href="_shared.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="topbar-brand" href="index.html">
+    <div class="topbar-logo">PJ</div>
+    <span class="topbar-name">SIAF-PJEV</span>
+  </a>
+  <div class="topbar-pipe"></div>
+  <div class="topbar-crumb">
+    <a class="topbar-crumb-item" href="index.html" style="color:rgba(255,255,255,0.55);text-decoration:none;">UI_PJEV</a>
+    <span class="topbar-crumb-sep">›</span>
+    <span class="topbar-crumb-item" style="color:rgba(255,255,255,0.55);">Base Elements</span>
+    <span class="topbar-crumb-sep">›</span>
+    <span class="topbar-crumb-item active">Badge — Estatus</span>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-version">v1.0.0</span>
+    <span class="topbar-badge">Dix Consultoría</span>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="doc-sidebar">
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Inicio</div>
+      <a class="sidebar-link" href="index.html">Guía maestra</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Foundations</div>
+      <a class="sidebar-link" href="f01-tokens.html">Tokens CSS <span class="sidebar-id">F-01</span></a>
+      <a class="sidebar-link" href="f02-tipografia.html">Tipografía <span class="sidebar-id">F-02</span></a>
+      <a class="sidebar-link" href="f03-espaciado.html">Espaciado <span class="sidebar-id">F-03</span></a>
+      <a class="sidebar-link" href="f04-iconografia.html">Iconografía <span class="sidebar-id">F-04</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Base Elements</div>
+      <a class="sidebar-link" href="b01-button-primary.html">Button Primary <span class="sidebar-id">B-01</span></a>
+      <a class="sidebar-link" href="b02-button-secondary.html">Button Secondary <span class="sidebar-id">B-02</span></a>
+      <a class="sidebar-link" href="b03-button-danger.html">Button Danger <span class="sidebar-id">B-03</span></a>
+      <a class="sidebar-link" href="b04-button-ghost.html">Button Ghost <span class="sidebar-id">B-04</span></a>
+      <a class="sidebar-link" href="b05-button-icon.html">Button Icon only <span class="sidebar-id">B-05</span></a>
+      <a class="sidebar-link" href="b06-button-loading.html">Button Loading <span class="sidebar-id">B-06</span></a>
+      <a class="sidebar-link" href="b07-input-text.html">Input text <span class="sidebar-id">B-07</span></a>
+      <a class="sidebar-link" href="b08-input-date.html">Input date <span class="sidebar-id">B-08</span></a>
+      <a class="sidebar-link" href="b09-input-number.html">Input number <span class="sidebar-id">B-09</span></a>
+      <a class="sidebar-link" href="b10-select.html">Select <span class="sidebar-id">B-10</span></a>
+      <a class="sidebar-link" href="b11-textarea.html">Textarea <span class="sidebar-id">B-11</span></a>
+      <a class="sidebar-link" href="b12-checkbox.html">Checkbox <span class="sidebar-id">B-12</span></a>
+      <a class="sidebar-link" href="b13-badge-estatus.html">Badge estatus <span class="sidebar-id">B-13</span></a>
+      <a class="sidebar-link" href="b14-badge-tipo.html">Badge tipo <span class="sidebar-id">B-14</span></a>
+      <a class="sidebar-link" href="b15-chip.html">Chip tipo <span class="sidebar-id">B-15</span></a>
+      <a class="sidebar-link" href="b16-label.html">Label de campo <span class="sidebar-id">B-16</span></a>
+      <a class="sidebar-link" href="b17-divider.html">Divider <span class="sidebar-id">B-17</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Feedback</div>
+      <a class="sidebar-link" href="fb01-toast-success.html">Toast Success <span class="sidebar-id">FB-01</span></a>
+      <a class="sidebar-link" href="fb02-toast-error.html">Toast Error <span class="sidebar-id">FB-02</span></a>
+      <a class="sidebar-link" href="fb03-toast-warning.html">Toast Warning <span class="sidebar-id">FB-03</span></a>
+      <a class="sidebar-link" href="fb04-toast-info.html">Toast Info <span class="sidebar-id">FB-04</span></a>
+      <a class="sidebar-link" href="fb05-modal-confirm.html">Modal Confirmación <span class="sidebar-id">FB-05</span></a>
+      <a class="sidebar-link" href="fb06-modal-destructivo.html">Modal Destructivo <span class="sidebar-id">FB-06</span></a>
+      <a class="sidebar-link" href="fb07-modal-form.html">Modal Formulario <span class="sidebar-id">FB-07</span></a>
+      <a class="sidebar-link" href="fb08-empty-state.html">Empty state <span class="sidebar-id">FB-08</span></a>
+      <a class="sidebar-link" href="fb09-skeleton.html">Loading skeleton <span class="sidebar-id">FB-09</span></a>
+      <a class="sidebar-link" href="fb10-error-inline.html">Error inline <span class="sidebar-id">FB-10</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Layout Containers</div>
+      <a class="sidebar-link" href="lc02-page-header.html">Page Header <span class="sidebar-id">LC-02</span></a>
+      <a class="sidebar-link" href="lc03-card.html">Card / Panel <span class="sidebar-id">LC-03</span></a>
+      <a class="sidebar-link" href="lc04-section.html">Section <span class="sidebar-id">LC-04</span></a>
+      <a class="sidebar-link" href="lc05-barra-ventana.html">Barra de ventana <span class="sidebar-id">LC-05</span></a>
+      <a class="sidebar-link" href="lc06-barra-acciones.html">Barra de acciones <span class="sidebar-id">LC-06</span></a>
+      <a class="sidebar-link" href="lc07-toolbar-grid.html">Toolbar de grid <span class="sidebar-id">LC-07</span></a>
+      <a class="sidebar-link" href="lc08-form-group.html">Form group <span class="sidebar-id">LC-08</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Data Grid</div>
+      <a class="sidebar-link" href="dg01-grid-base.html">Grid base <span class="sidebar-id">DG-01</span></a>
+      <a class="sidebar-link" href="dg02-grid-acciones.html">Grid con acciones <span class="sidebar-id">DG-02</span></a>
+      <a class="sidebar-link" href="dg03-columna-sort.html">Columna ordenable <span class="sidebar-id">DG-03</span></a>
+      <a class="sidebar-link" href="dg04-col-toggle.html">Mostrar/ocultar cols <span class="sidebar-id">DG-04</span></a>
+      <a class="sidebar-link" href="dg05-totales.html">Fila de totales <span class="sidebar-id">DG-05</span></a>
+      <a class="sidebar-link" href="dg06-paginacion.html">Paginación <span class="sidebar-id">DG-06</span></a>
+      <a class="sidebar-link" href="dg07-empty.html">Empty state grid <span class="sidebar-id">DG-07</span></a>
+      <a class="sidebar-link" href="dg08-skeleton.html">Grid skeleton <span class="sidebar-id">DG-08</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Formularios</div>
+      <a class="sidebar-link" href="fm01-leer.html">Leer sin acciones <span class="sidebar-id">FM-01</span></a>
+      <a class="sidebar-link" href="fm02-leer-acciones.html">Leer con acciones <span class="sidebar-id">FM-02</span></a>
+      <a class="sidebar-link" href="fm03-crud-simple.html">CRUD Simple <span class="sidebar-id">FM-03</span></a>
+      <a class="sidebar-link" href="fm04-crud-compuesto.html">CRUD Compuesto <span class="sidebar-id">FM-04</span></a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Páginas modelo</div>
+      <a class="sidebar-link" href="pm01-dashboard.html">Dashboard <span class="sidebar-id">PM-01</span></a>
+      <a class="sidebar-link" href="pm02-404.html">Error 404 <span class="sidebar-id">PM-02</span></a>
+      <a class="sidebar-link" href="pm03-403.html">Error 403 <span class="sidebar-id">PM-03</span></a>
+      <a class="sidebar-link" href="pm04-500.html">Error 500 <span class="sidebar-id">PM-04</span></a>
+      <a class="sidebar-link" href="pm05-login.html">Login <span class="sidebar-id">PM-05</span></a>
+      <a class="sidebar-link" href="pm06-sin-ejercicio.html">Sin ejercicio <span class="sidebar-id">PM-06</span></a>
+    </div>
+  </nav>
+
+  <main class="doc-main">
+  <div class="doc-main-inner">
+
+    <div class="elem-breadcrumb">
+      <a href="index.html">UI_PJEV</a> ›
+      <span>Base Elements</span> ›
+      <span>Badge — Estatus</span>
+    </div>
+
+    <div class="elem-header">
+      <div>
+        <div class="elem-id">B-13</div>
+        <h1 class="elem-title">Badge — Estatus</h1>
+        <p class="elem-desc">Etiqueta de estatus de un registro: Registrado, Enviado, Autorizado, Afectado, Cancelado.</p>
+        <div class="elem-meta">
+          <span class="elem-tag">Base Elements</span>
+          <span class="elem-tag tsx">SiafBadge.tsx</span>
+        </div>
+      </div>
+      <span class="status-badge nuevo">Nuevo componente</span>
+    </div>
+
+    <!-- 1. DESCRIPCIÓN -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">1</span> Descripción</div>
+      <p>Etiqueta de estatus de un registro: Registrado, Enviado, Autorizado, Afectado, Cancelado.</p><p>Esta sección documenta el elemento <strong>B-13 — Badge — Estatus</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+    </div>
+
+    <!-- 2. PREVIEW -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">2</span> Preview</div>
+      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+    </div>
+
+    <!-- 3. PROPIEDADES -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
+      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+    </div>
+
+    <!-- 4. CÓDIGO -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="code-wrap">
+        <div class="code-tabs"><button class="code-tab active">TSX — SiafBadge.tsx</button></div>
+        <div class="code-block" id="code-main">
+          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
+          <pre><span class='cm'>// SiafBadge.tsx</span>
+<span class='cm'>// Implementación completa en construcción</span>
+<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. INSTRUCCIONES PARA DARYL -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      <div class="callout info">
+        <span class="callout-icon">📋</span>
+        <div>
+          <strong>Archivo a crear:</strong> <code>components/ui/SiafBadge.tsx</code><br><br>
+          <strong>Checklist de entrega para B-13:</strong><br>
+          1. El componente renderiza exactamente como el preview de la sección 2.<br>
+          2. Todas las props documentadas en la sección 3 están implementadas.<br>
+          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
+          4. El componente tiene JSDoc en cada prop.<br>
+          5. Cristian puede importarlo con <code>import { SiafBadge } from '@/components/ui/SiafBadge'</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. DO / DON'T -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
+      <div class="callout info">
+        <span class="callout-icon">ℹ</span>
+        <div>Ver sección de descripción para reglas de uso.</div>
+      </div>
+    </div>
+
+    <!-- 7. DEPRECADOS -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
+      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+    </div>
+
+    <div class="doc-footer">
+      <div class="foot-nav">
+        <span class="foot-nav-label">← Anterior</span>
+        <a class="foot-nav-link" href="b12-checkbox.html">B-12 · Checkbox</a>
+      </div>
+      <div class="foot-center">
+        UI_PJEV · Sistema de diseño SIAF-PJEV<br>
+        <span class="foot-gold">Dix Consultoría</span> · OAJ-DGA · 2026
+      </div>
+      <div class="foot-nav" style="align-items:flex-end;">
+        <span class="foot-nav-label">Siguiente →</span>
+        <a class="foot-nav-link" href="b14-badge-tipo.html">B-14 · Badge tipo</a>
+      </div>
+    </div>
+
+  </div>
+  </main>
+</div>
+<script src="_shared.js"></script>
+</body>
+</html>
