@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FB-01 · Toast — Success — UI_PJEV</title>
+<title>FB-01 - Toast Success - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,92 +114,114 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Feedback</span> ›
-      <span>Toast — Success</span>
+      <span>Toast Success</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">FB-01</div>
-        <h1 class="elem-title">Toast — Success</h1>
-        <p class="elem-desc">Notificación de operación exitosa. Duración 4.2s. Aparece esquina superior derecha.</p>
+        <h1 class="elem-title">Toast Success</h1>
+        <p class="elem-desc">Notificación emergente para operaciones exitosas.</p>
         <div class="elem-meta">
           <span class="elem-tag">Feedback</span>
           <span class="elem-tag tsx">SiafToast.tsx</span>
         </div>
       </div>
-      <span class="status-badge migrar">Migrar toast.tsx</span>
+      <span class="status-badge nuevo">Nuevo componente</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Notificación de operación exitosa. Duración 4.2s. Aparece esquina superior derecha.</p><p>Esta sección documenta el elemento <strong>FB-01 — Toast — Success</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Mensaje efímero que confirma la correcta ejecución de una acción. Aparece en la esquina superior derecha o inferior y desaparece automáticamente.</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="siaf-toast siaf-toast-success" style="width:320px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div>
+            <div class="siaf-toast-title">Registro guardado</div>
+            <div class="siaf-toast-msg">El proveedor fue registrado exitosamente en el sistema.</div>
+          </div>
+        </div>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>type</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td><code>'success'</code></td></tr>
+      <tr><td><code>title</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Título principal</td></tr>
+      <tr><td><code>message</code></td><td><span class="badge-opt">Opcional</span></td><td>-</td><td>Descripción detallada</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafToast.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafToast.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - SiafToast.tsx</button></div>
+        <div class="code-block" id="code-main-FB-01">
+          <button class="copy-btn" onclick="copyCode('code-main-FB-01',this)">Copiar</button>
+          <pre><span class="kw">import</span> { <span class="nm">toast</span> } <span class="kw">from</span> <span class="str">'@/lib/toast'</span>;
+
+<span class="nm">toast</span>.<span class="fn">success</span>(<span class="str">'Proveedor guardado'</span>, {
+  <span class="at">description</span>: <span class="str">'El proveedor se registr exitosamente.'</span>
+});</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafToast.tsx</code><br><br>
-          <strong>Checklist de entrega para FB-01:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafToast } from '@/components/ui/SiafToast'</code>.
+        <div>La librera de toast ya existe en <code>lib/toast.tsx</code>. Este componente debe re-exportar y estandarizar sus estilos (duracin 4s).</div>
+      </div>
+    
+    </div>
+
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div style="font-size:12px;">toast.success('Guardado con xito')</div></div>
+          <div class="do-desc">Usar textos estandarizados como 'El [entidad] fue [accin] exitosamente.'</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div style="font-size:12px;">alert('Guardado')</div></div>
+          <div class="dont-desc">No usar alertas nativas.</div>
         </div>
       </div>
     </div>
 
-    <!-- 6. DO / DON'T -->
-    <div class="doc-section">
-      <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
-      </div>
-    </div>
-
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div><span class="callout-icon">⚠</span></div><div>Diferentes duraciones hardcodeadas en las notificaciones del sistema.</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b17-divider.html">B-17 · Divider</a>

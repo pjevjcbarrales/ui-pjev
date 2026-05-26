@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>B-01 · Button — Primary — UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
@@ -114,8 +113,7 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
@@ -138,19 +136,46 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Documentación del elemento B-01.</p><p>Esta sección documenta el elemento <strong>B-01 — Button — Primary</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>El botón principal del sistema. Se utiliza para la acción principal y más importante de una pantalla, como "Guardar", "Registrar" o "Confirmar".</p><div class="callout warning"><span class="callout-icon">⚠</span><div><strong>Regla de oro:</strong> Nunca debe haber más de un botón primario visible a la vez en una misma vista o modal.</div></div>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <button class="siaf-btn siaf-btn-primary siaf-btn-sm">Guardar (sm)</button>
+      <button class="siaf-btn siaf-btn-primary">Guardar (md)</button>
+      <button class="siaf-btn siaf-btn-primary siaf-btn-lg">Guardar (lg)</button>
+      <div style="width:100%;height:10px;"></div>
+      <button class="siaf-btn siaf-btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg> Nuevo Registro</button>
+      <button class="siaf-btn siaf-btn-primary" disabled>Deshabilitado</button>
+      <button class="siaf-btn siaf-btn-primary siaf-btn-loading"><div class="siaf-spinner"></div> Procesando...</button>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>variant</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Variante visual del botón (<code>'primary' | 'secondary' | 'danger' | 'ghost'</code>)</td></tr>
+      <tr><td><code>size</code></td><td><span class="badge-opt">Opcional</span></td><td><code>'md'</code></td><td>Tamaño del botón (<code>'sm' | 'md' | 'lg'</code>)</td></tr>
+      <tr><td><code>loading</code></td><td><span class="badge-opt">Opcional</span></td><td><code>false</code></td><td>Muestra spinner y deshabilita el botón</td></tr>
+      <tr><td><code>disabled</code></td><td><span class="badge-opt">Opcional</span></td><td><code>false</code></td><td>Estado deshabilitado nativo</td></tr>
+      <tr><td><code>icon</code></td><td><span class="badge-opt">Opcional</span></td><td><code>undefined</code></td><td>Ícono de Lucide React a renderizar</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
@@ -158,11 +183,39 @@
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
         <div class="code-tabs"><button class="code-tab active">TSX — SiafButton.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafButton.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-block" id="code-main-B-01">
+          <button class="copy-btn" onclick="copyCode('code-main-B-01',this)">Copiar</button>
+          <pre><span class="kw">import</span> <span class="tp">React</span> <span class="kw">from</span> <span class="str">'react'</span>
+<span class="kw">import</span> { <span class="nm">clsx</span>, <span class="tp">type</span> <span class="tp">ClassValue</span> } <span class="kw">from</span> <span class="str">'clsx'</span>
+
+<span class="kw">interface</span> <span class="tp">SiafButtonProps</span> <span class="kw">extends</span> <span class="tp">React</span>.<span class="tp">ButtonHTMLAttributes</span>&lt;<span class="tp">HTMLButtonElement</span>&gt; {
+  <span class="at">variant</span>: <span class="str">'primary'</span> | <span class="str">'secondary'</span> | <span class="str">'danger'</span> | <span class="str">'ghost'</span>;
+  <span class="at">size</span>?: <span class="str">'sm'</span> | <span class="str">'md'</span> | <span class="str">'lg'</span>;
+  <span class="at">loading</span>?: <span class="tp">boolean</span>;
+  <span class="at">icon</span>?: <span class="tp">React</span>.<span class="tp">ReactNode</span>;
+  <span class="at">iconOnly</span>?: <span class="tp">boolean</span>;
+}
+
+<span class="kw">export</span> <span class="kw">function</span> <span class="fn">SiafButton</span>({ 
+  <span class="at">variant</span>, <span class="at">size</span> = <span class="str">'md'</span>, <span class="at">loading</span>, <span class="at">icon</span>, <span class="at">iconOnly</span>, 
+  <span class="at">className</span>, <span class="at">children</span>, <span class="at">disabled</span>, ...<span class="at">props</span> 
+}: <span class="tp">SiafButtonProps</span>) {
+  <span class="kw">const</span> <span class="nm">baseClass</span> = <span class="str">'siaf-btn'</span>;
+  <span class="kw">const</span> <span class="nm">variantClass</span> = `siaf-btn-${variant}`;
+  <span class="kw">const</span> <span class="nm">sizeClass</span> = size !== <span class="str">'md'</span> ? `siaf-btn-${size}` : <span class="str">''</span>;
+  
+  <span class="kw">return</span> (
+    &lt;<span class="tp">button</span> 
+      <span class="at">className</span>={clsx(baseClass, variantClass, sizeClass, loading && <span class="str">'siaf-btn-loading'</span>, iconOnly && <span class="str">'siaf-btn-icon-only'</span>, className)}
+      <span class="at">disabled</span>={disabled || loading}
+      {...props}
+    &gt;
+      {loading && &lt;<span class="tp">div</span> <span class="at">className</span>=<span class="str">"siaf-spinner"</span> /&gt;}
+      {!loading && icon && icon}
+      {!iconOnly && children}
+    &lt;/<span class="tp">button</span>&gt;
+  )
+}</pre>
         </div>
       </div>
     </div>
@@ -170,6 +223,7 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
         <div>
@@ -177,29 +231,46 @@
           <strong>Checklist de entrega para B-01:</strong><br>
           1. El componente renderiza exactamente como el preview de la sección 2.<br>
           2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafButton } from '@/components/ui/SiafButton'</code>.
+          3. Los estilos usan exclusivamente clases de <code>shared.css</code> o variables <code>--pjev-*</code>.<br>
+          4. El estado loading debe deshabilitar el click Y mostrar el spinner interno.<br>
+          5. Validar con Cristian en <code>transferencias/page.tsx</code> reemplazando el botón "Registrar Movimiento".
         </div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button class="siaf-btn siaf-btn-primary">Guardar registro</button></div>
+          <div class="do-desc">Usar la variante primary para la acción más importante (submit).</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button style="background-color: #183125; color: white; padding: 8px 16px; border: none; border-radius: 4px;">Guardar registro</button></div>
+          <div class="dont-desc">No usar estilos inline (style={{...}}) ni colores hexadecimales hardcodeados en los componentes.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div><strong>transferencias/page.tsx</strong>: Botón "Registrar" usa <code>style={{background: COLORS.green, color: '#fff'}}</code>.</div>
+      </div>
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div><strong>polizas/page.tsx</strong>: Múltiples botones usando estilos inline hardcodeados para fondos y colores de texto.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="f04-iconografia.html">F-04 · Iconografía</a>

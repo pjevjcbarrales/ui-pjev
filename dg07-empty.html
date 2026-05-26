@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DG-07 · Empty state grid — UI_PJEV</title>
+<title>DG-07 - DataGrid Vaco - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,92 +114,106 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Data Grid</span> ›
-      <span>Empty state grid</span>
+      <span>DataGrid Vaco</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">DG-07</div>
-        <h1 class="elem-title">Empty state grid</h1>
-        <p class="elem-desc">Estado vacío del grid cuando no hay resultados para los filtros aplicados.</p>
+        <h1 class="elem-title">DataGrid Vaco</h1>
+        <p class="elem-desc">Estado de tabla sin resultados.</p>
         <div class="elem-meta">
           <span class="elem-tag">Data Grid</span>
-          <span class="elem-tag tsx">SiafDataGrid.tsx</span>
+          <span class="elem-tag tsx">SiafDataGrid.tsx (empty)</span>
         </div>
       </div>
-      <span class="status-badge nuevo">Nuevo componente</span>
+      <span class="status-badge nuevo">Documentado</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Estado vacío del grid cuando no hay resultados para los filtros aplicados.</p><p>Esta sección documenta el elemento <strong>DG-07 — Empty state grid</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Se reutiliza el componente FB-08 Empty State dentro del cuerpo de la tabla para mantener el layout (headers visibles pero body vaco).</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="border:1px solid #D4C9B5; border-radius:6px; overflow:hidden;">
+        <table style="width:100%; border-collapse:collapse; text-align:left;">
+          <thead style="background:#f5f0e8; border-bottom:1px solid #D4C9B5;">
+            <tr><th style="padding:12px; font-size:12px;">Columnas...</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:32px; text-align:center; color:#5a5a5a;">No hay registros para mostrar.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          
+      <tr><td>N/A</td><td>-</td><td>-</td><td>-</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafDataGrid.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafDataGrid.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - SiafDataGrid.tsx (empty)</button></div>
+        <div class="code-block" id="code-main-DG-07">
+          <button class="copy-btn" onclick="copyCode('code-main-DG-07',this)">Copiar</button>
+          <pre>// Renderizado automtico si data.length === 0</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
-      <div class="callout info">
-        <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafDataGrid.tsx</code><br><br>
-          <strong>Checklist de entrega para DG-07:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafDataGrid } from '@/components/ui/SiafDataGrid'</code>.
-        </div>
-      </div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      <div class="callout info"><span class="callout-icon">📋</span><div>-</div></div>
     </div>
 
-    <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>-</div></div>
+          <div class="do-desc">-</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>-</div></div>
+          <div class="dont-desc">-</div>
+        </div>
       </div>
     </div>
 
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div>-</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="dg06-paginacion.html">DG-06 · Paginación</a>

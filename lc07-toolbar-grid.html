@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LC-07 · Toolbar de grid — UI_PJEV</title>
+<title>LC-07 - Toolbar Grid - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,92 +114,101 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
-      <span>Layout</span> ›
-      <span>Toolbar de grid</span>
+      <span>Layout Containers</span> ›
+      <span>Toolbar Grid</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">LC-07</div>
-        <h1 class="elem-title">Toolbar de grid</h1>
-        <p class="elem-desc">Toolbar del grid: búsqueda, filtros y conteo de registros.</p>
+        <h1 class="elem-title">Toolbar Grid</h1>
+        <p class="elem-desc">Herramientas sobre una tabla.</p>
         <div class="elem-meta">
-          <span class="elem-tag">Layout</span>
-          <span class="elem-tag tsx">SiafPageHeader.tsx</span>
+          <span class="elem-tag">Layout Containers</span>
+          <span class="elem-tag tsx">GridToolbar.tsx</span>
         </div>
       </div>
       <span class="status-badge nuevo">Nuevo componente</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Toolbar del grid: búsqueda, filtros y conteo de registros.</p><p>Esta sección documenta el elemento <strong>LC-07 — Toolbar de grid</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Buscador, filtros y botones de accin encima de un DataGrid.</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #D4C9B5; margin-bottom:16px;">
+        <div style="display:flex; gap:8px;">
+          <input type="text" class="siaf-input" placeholder="Buscar..." style="height:32px;">
+          <button class="siaf-btn siaf-btn-secondary siaf-btn-sm">Filtrar</button>
+        </div>
+        <div>
+          <button class="siaf-btn siaf-btn-ghost siaf-btn-sm">Exportar</button>
+        </div>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          <tr><td>N/A</td><td>-</td><td>-</td><td>-</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafPageHeader.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafPageHeader.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - GridToolbar.tsx</button></div>
+        <div class="code-block" id="code-main-LC-07">
+          <button class="copy-btn" onclick="copyCode('code-main-LC-07',this)">Copiar</button>
+          <pre>&lt;<span class="tp">GridToolbar</span>&gt;...&lt;/<span class="tp">GridToolbar</span>&gt;</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
-      <div class="callout info">
-        <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafPageHeader.tsx</code><br><br>
-          <strong>Checklist de entrega para LC-07:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafPageHeader } from '@/components/ui/SiafPageHeader'</code>.
-        </div>
-      </div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      <div class="callout info"><span class="callout-icon">📋</span><div>Mantener alineacin vertical.</div></div>
     </div>
 
-    <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>-</div></div>
+          <div class="do-desc">-</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>-</div></div>
+          <div class="dont-desc">-</div>
+        </div>
       </div>
     </div>
 
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div>-</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="lc06-barra-acciones.html">LC-06 · Barra acciones</a>

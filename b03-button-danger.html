@@ -114,8 +114,7 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
@@ -126,7 +125,7 @@
       <div>
         <div class="elem-id">B-03</div>
         <h1 class="elem-title">Button — Danger</h1>
-        <p class="elem-desc">Acción destructiva irreversible: cancelar, eliminar, rechazar.</p>
+        <p class="elem-desc">Documentación del elemento B-03.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
           <span class="elem-tag tsx">SiafButton.tsx</span>
@@ -138,19 +137,42 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Acción destructiva irreversible: cancelar, eliminar, rechazar.</p><p>Esta sección documenta el elemento <strong>B-03 — Button — Danger</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>Usado EXCLUSIVAMENTE para acciones destructivas (eliminar, cancelar documentos, rechazar). Siempre debe estar respaldado por un modal de confirmación (FB-06).</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <button class="siaf-btn siaf-btn-danger siaf-btn-sm">Eliminar (sm)</button>
+      <button class="siaf-btn siaf-btn-danger">Eliminar (md)</button>
+      <button class="siaf-btn siaf-btn-danger siaf-btn-lg">Eliminar (lg)</button>
+      <div style="width:100%;height:10px;"></div>
+      <button class="siaf-btn siaf-btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Borrar registro</button>
+      <button class="siaf-btn siaf-btn-danger" disabled>Deshabilitado</button>
+      <button class="siaf-btn siaf-btn-danger siaf-btn-loading"><div class="siaf-spinner"></div> Eliminando...</button>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>variant</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Debe ser <code>'danger'</code></td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
@@ -158,11 +180,11 @@
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
         <div class="code-tabs"><button class="code-tab active">TSX — SiafButton.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafButton.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-block" id="code-main-B-03">
+          <button class="copy-btn" onclick="copyCode('code-main-B-03',this)">Copiar</button>
+          <pre><span class="cm">// Ver implementación completa en B-01 (SiafButton.tsx)</span>
+<span class="cm">// Uso:</span>
+&lt;<span class="tp">SiafButton</span> <span class="at">variant</span>=<span class="str">"danger"</span> <span class="at">icon</span>={&lt;<span class="tp">Trash2</span> <span class="at">size</span>={14}/&gt;}&gt;Eliminar&lt;/<span class="tp">SiafButton</span>&gt;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +192,44 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
         <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafButton.tsx</code><br><br>
-          <strong>Checklist de entrega para B-03:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafButton } from '@/components/ui/SiafButton'</code>.
+          El botón danger usa el token <code>--pjev-rojo-vino</code>. En hover, el fondo cambia a un rojo claro (<code>#fdeaec</code>) para indicar interactividad.
         </div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button class="siaf-btn siaf-btn-danger">Eliminar póliza</button></div>
+          <div class="do-desc">Usar solo para borrar datos o acciones irreversibles.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button class="siaf-btn siaf-btn-danger">Cancelar edición</button></div>
+          <div class="dont-desc">No usar para "Cancelar" un formulario (eso es botón secondary), ya que no es una acción destructiva de base de datos.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div><strong>components/CancelModal.tsx</strong>: El botón destructivo actual tiene estilos hardcodeados en lugar de usar una variante de botón unificada.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b02-button-secondary.html">B-02 · Button Secondary</a>

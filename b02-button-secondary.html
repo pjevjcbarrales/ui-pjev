@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>B-02 · Button — Secondary — UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
@@ -114,8 +113,7 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
@@ -126,7 +124,7 @@
       <div>
         <div class="elem-id">B-02</div>
         <h1 class="elem-title">Button — Secondary</h1>
-        <p class="elem-desc">Acción secundaria del formulario. Siempre acompaña al botón primario como alternativa.</p>
+        <p class="elem-desc">Documentación del elemento B-02.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
           <span class="elem-tag tsx">SiafButton.tsx</span>
@@ -138,19 +136,43 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Acción secundaria del formulario. Siempre acompaña al botón primario como alternativa.</p><p>Esta sección documenta el elemento <strong>B-02 — Button — Secondary</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>El botón secundario se utiliza para acciones alternativas a la acción principal, como "Cancelar", "Regresar" o "Descargar". Tiene menos peso visual que el botón primario.</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <button class="siaf-btn siaf-btn-secondary siaf-btn-sm">Cancelar (sm)</button>
+      <button class="siaf-btn siaf-btn-secondary">Cancelar (md)</button>
+      <button class="siaf-btn siaf-btn-secondary siaf-btn-lg">Cancelar (lg)</button>
+      <div style="width:100%;height:10px;"></div>
+      <button class="siaf-btn siaf-btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Exportar</button>
+      <button class="siaf-btn siaf-btn-secondary" disabled>Deshabilitado</button>
+      <button class="siaf-btn siaf-btn-secondary siaf-btn-loading"><div class="siaf-spinner"></div> Procesando...</button>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>variant</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Debe ser <code>'secondary'</code></td></tr>
+      <tr><td colspan="4" style="text-align:center;color:#666;">Las demás props son idénticas a B-01.</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
@@ -158,11 +180,11 @@
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
         <div class="code-tabs"><button class="code-tab active">TSX — SiafButton.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafButton.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-block" id="code-main-B-02">
+          <button class="copy-btn" onclick="copyCode('code-main-B-02',this)">Copiar</button>
+          <pre><span class="cm">// Ver implementación completa en B-01 (SiafButton.tsx)</span>
+<span class="cm">// Uso:</span>
+&lt;<span class="tp">SiafButton</span> <span class="at">variant</span>=<span class="str">"secondary"</span>&gt;Cancelar&lt;/<span class="tp">SiafButton</span>&gt;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +192,44 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
         <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafButton.tsx</code><br><br>
-          <strong>Checklist de entrega para B-02:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafButton } from '@/components/ui/SiafButton'</code>.
+          El botón secundario usa fondo blanco y borde verde oscuro. El spinner en modo loading debe ser verde (modificado vía CSS en shared.css).
         </div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button class="siaf-btn siaf-btn-secondary">Cancelar</button></div>
+          <div class="do-desc">Usar como acción de escape o alternativa segura.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button style="border: 1px solid #183125; background: #fff;">Cancelar</button></div>
+          <div class="dont-desc">No usar botones nativos con estilos inline para simular la jerarquía secundaria.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div><strong>configuracion/usuarios/page.tsx</strong>: Botón "Regresar" usa clases custom sin unificación visual.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b01-button-primary.html">B-01 · Button Primary</a>

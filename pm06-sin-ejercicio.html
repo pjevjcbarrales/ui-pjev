@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PM-06 · Sin ejercicio activo — UI_PJEV</title>
+<title>PM-06 - Seleccin de Ejercicio - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,92 +114,97 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
-      <span>Páginas modelo</span> ›
-      <span>Sin ejercicio activo</span>
+      <span>Pginas Especiales</span> ›
+      <span>Seleccin de Ejercicio</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">PM-06</div>
-        <h1 class="elem-title">Sin ejercicio activo</h1>
-        <p class="elem-desc">Pantalla de bloqueo cuando no hay ejercicio fiscal activo configurado.</p>
+        <h1 class="elem-title">Seleccin de Ejercicio</h1>
+        <p class="elem-desc">Filtro obligatorio inicial.</p>
         <div class="elem-meta">
-          <span class="elem-tag">Páginas modelo</span>
-          <span class="elem-tag tsx">Plantilla Next.js</span>
+          <span class="elem-tag">Pginas Especiales</span>
+          <span class="elem-tag tsx">ejercicio/page.tsx</span>
         </div>
       </div>
-      <span class="status-badge existe">Plantilla</span>
+      <span class="status-badge nuevo">Patrn</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Pantalla de bloqueo cuando no hay ejercicio fiscal activo configurado.</p><p>Esta sección documenta el elemento <strong>PM-06 — Sin ejercicio activo</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Bloqueo de la UI hasta que el usuario especifica con qu Ejercicio Fiscal desea trabajar.</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="text-align:center; padding:48px; background:#fff; border:1px solid #D4C9B5; border-radius:8px; max-width:400px; margin:0 auto;">
+        <h3>Selecciona el Ejercicio Fiscal</h3>
+        <select class="siaf-select" style="margin:16px 0;"><option>2026</option></select>
+        <button class="siaf-btn siaf-btn-primary">Continuar</button>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          <tr><td>N/A</td><td>-</td><td>-</td><td>-</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — Plantilla Next.js</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// Plantilla Next.js</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - ejercicio/page.tsx</button></div>
+        <div class="code-block" id="code-main-PM-06">
+          <button class="copy-btn" onclick="copyCode('code-main-PM-06',this)">Copiar</button>
+          <pre>// Guardar en Context / Cookie</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
-      <div class="callout info">
-        <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/Plantilla Next.js</code><br><br>
-          <strong>Checklist de entrega para PM-06:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafComponent } from '@/components/ui/SiafComponent'</code>.
-        </div>
-      </div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      <div class="callout info"><span class="callout-icon">📋</span><div>-</div></div>
     </div>
 
-    <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>-</div></div>
+          <div class="do-desc">-</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>-</div></div>
+          <div class="dont-desc">-</div>
+        </div>
       </div>
     </div>
 
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div>-</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="pm05-login.html">PM-05 · Login</a>

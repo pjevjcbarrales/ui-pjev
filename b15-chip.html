@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B-15 · Chip de tipo — UI_PJEV</title>
+<title>B-15 · Chip — UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,22 +114,21 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
-      <span>Chip de tipo</span>
+      <span>Chip</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">B-15</div>
-        <h1 class="elem-title">Chip de tipo</h1>
-        <p class="elem-desc">Chip compacto para tipo con colores diferenciados. Variante de badge.</p>
+        <h1 class="elem-title">Chip</h1>
+        <p class="elem-desc">Etiqueta compacta de identificacin.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
-          <span class="elem-tag tsx">SiafBadge.tsx</span>
+          <span class="elem-tag tsx">SiafChip.tsx</span>
         </div>
       </div>
       <span class="status-badge nuevo">Nuevo componente</span>
@@ -138,31 +137,52 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Chip compacto para tipo con colores diferenciados. Variante de badge.</p><p>Esta sección documenta el elemento <strong>B-15 — Chip de tipo</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>Elemento altamente compacto para mostrar acrnimos. Esencial en el mdulo de Plizas para los tipos PD, PE, PI, PP, PCh.</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex; gap:16px;">
+        <span class="siaf-badge" style="border-radius:12px; padding:2px 8px; font-weight:700; background:#e3f2fd; color:#1565c0;">PD</span>
+        <span class="siaf-badge" style="border-radius:12px; padding:2px 8px; font-weight:700; background:#ffebee; color:#c62828;">PE</span>
+        <span class="siaf-badge" style="border-radius:12px; padding:2px 8px; font-weight:700; background:#e8f5e9; color:#2e7d32;">PI</span>
+        <span class="siaf-badge" style="border-radius:12px; padding:2px 8px; font-weight:700; background:#f3e5f5; color:#6a1b9a;">PP</span>
+        <span class="siaf-badge" style="border-radius:12px; padding:2px 8px; font-weight:700; background:#fff3e0; color:#ef6c00;">PCh</span>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>tipo</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Determina el acrnimo y el color.</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafBadge.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafBadge.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX — SiafChip.tsx</button></div>
+        <div class="code-block" id="code-main-B-15">
+          <button class="copy-btn" onclick="copyCode('code-main-B-15',this)">Copiar</button>
+          <pre>&lt;<span class="tp">SiafChip</span> <span class="at">tipo</span>=<span class="str">"PD"</span> /&gt;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +190,42 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafBadge.tsx</code><br><br>
-          <strong>Checklist de entrega para B-15:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafBadge } from '@/components/ui/SiafBadge'</code>.
-        </div>
+        <div>Este componente asocia el acrnimo directamente con su color histrico del PJEV. No se le debe pasar texto manualmente (children), recibe el tipo y l decide qu renderizar.</div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><span class="siaf-badge" style="border-radius:12px; padding:2px 8px; font-weight:700; background:#e3f2fd; color:#1565c0;">PD</span></div>
+          <div class="do-desc">Usar la prop tipo y dejar que el chip pinte el acrnimo correcto.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><span class="siaf-badge" style="border-radius:12px; padding:2px 8px; font-weight:700; background:#183125; color:#fff;">Pliza Diario</span></div>
+          <div class="dont-desc">El chip no es para textos largos, para eso usar Badge.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div>polizas/page.tsx define TIPO_CHIP con colores hardcodeados inline.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b14-badge-tipo.html">B-14 · Badge tipo</a>

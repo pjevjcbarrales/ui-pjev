@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B-07 · Input — Text — UI_PJEV</title>
+<title>B-07 · Input Text — UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,19 +114,18 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
-      <span>Input — Text</span>
+      <span>Input Text</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">B-07</div>
-        <h1 class="elem-title">Input — Text</h1>
-        <p class="elem-desc">Campo de texto base. El más usado en el sistema. Soporta error, disabled y focus.</p>
+        <h1 class="elem-title">Input Text</h1>
+        <p class="elem-desc">Campo de texto estándar para captura de datos cortos.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
           <span class="elem-tag tsx">SiafInput.tsx</span>
@@ -138,19 +137,62 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Campo de texto base. El más usado en el sistema. Soporta error, disabled y focus.</p><p>Esta sección documenta el elemento <strong>B-07 — Input — Text</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>El componente principal para la captura de texto de una sola línea. Incluye soporte para etiquetas (labels), mensajes de error y texto de ayuda (hints).</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:400px;">
+        <!-- Normal -->
+        <div class="siaf-input-group">
+          <label class="siaf-label">Nombre del proveedor</label>
+          <input type="text" class="siaf-input" placeholder="Ej: Dix Consultoría S.A. de C.V.">
+        </div>
+        <!-- Required + Hint -->
+        <div class="siaf-input-group">
+          <label class="siaf-label siaf-label-req">RFC</label>
+          <input type="text" class="siaf-input" placeholder="Ej: ABC010203XY9">
+          <span class="siaf-hint">13 caracteres alfanuméricos sin espacios.</span>
+        </div>
+        <!-- Error -->
+        <div class="siaf-input-group">
+          <label class="siaf-label siaf-label-req">Correo electrónico</label>
+          <input type="text" class="siaf-input error" value="usuario@">
+          <span class="siaf-error-msg">Formato de correo inválido</span>
+        </div>
+        <!-- Disabled -->
+        <div class="siaf-input-group">
+          <label class="siaf-label">Clave de sistema</label>
+          <input type="text" class="siaf-input" value="SYS-2026-99" disabled>
+        </div>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>label</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Texto descriptivo del campo</td></tr>
+      <tr><td><code>error</code></td><td><span class="badge-opt">Opcional</span></td><td><code>undefined</code></td><td>Mensaje de error (activa borde rojo)</td></tr>
+      <tr><td><code>hint</code></td><td><span class="badge-opt">Opcional</span></td><td><code>undefined</code></td><td>Texto de ayuda bajo el input</td></tr>
+      <tr><td><code>required</code></td><td><span class="badge-opt">Opcional</span></td><td><code>false</code></td><td>Muestra asterisco rojo en el label</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
@@ -158,11 +200,33 @@
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
         <div class="code-tabs"><button class="code-tab active">TSX — SiafInput.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafInput.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-block" id="code-main-B-07">
+          <button class="copy-btn" onclick="copyCode('code-main-B-07',this)">Copiar</button>
+          <pre><span class="kw">import</span> <span class="tp">React</span> <span class="kw">from</span> <span class="str">'react'</span>
+
+<span class="kw">export interface</span> <span class="tp">SiafInputProps</span> <span class="kw">extends</span> <span class="tp">React</span>.<span class="tp">InputHTMLAttributes</span>&lt;<span class="tp">HTMLInputElement</span>&gt; {
+  <span class="at">label</span>: <span class="tp">string</span>;
+  <span class="at">error</span>?: <span class="tp">string</span>;
+  <span class="at">hint</span>?: <span class="tp">string</span>;
+}
+
+<span class="kw">export const</span> <span class="fn">SiafInput</span> = <span class="tp">React</span>.<span class="fn">forwardRef</span>&lt;<span class="tp">HTMLInputElement</span>, <span class="tp">SiafInputProps</span>&gt;(
+  ({ <span class="at">label</span>, <span class="at">error</span>, <span class="at">hint</span>, <span class="at">required</span>, <span class="at">className</span>, ...<span class="at">props</span> }, <span class="at">ref</span>) =&gt; {
+    <span class="kw">return</span> (
+      &lt;<span class="tp">div</span> <span class="at">className</span>=<span class="str">"siaf-input-group"</span>&gt;
+        &lt;<span class="tp">label</span> <span class="at">className</span>={<span class="str">`siaf-label ${required ? 'siaf-label-req' : ''}`</span>}&gt;{label}&lt;/<span class="tp">label</span>&gt;
+        &lt;<span class="tp">input</span>
+          <span class="at">ref</span>={ref}
+          <span class="at">className</span>={<span class="str">`siaf-input ${error ? 'error' : ''} ${className || ''}`</span>}
+          {...props}
+        /&gt;
+        {error && &lt;<span class="tp">span</span> <span class="at">className</span>=<span class="str">"siaf-error-msg"</span>&gt;{error}&lt;/<span class="tp">span</span>&gt;}
+        {hint && !error && &lt;<span class="tp">span</span> <span class="at">className</span>=<span class="str">"siaf-hint"</span>&gt;{hint}&lt;/<span class="tp">span</span>&gt;}
+      &lt;/<span class="tp">div</span>&gt;
+    );
+  }
+);
+<span class="nm">SiafInput</span>.<span class="at">displayName</span> = <span class="str">'SiafInput'</span>;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +234,44 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
         <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafInput.tsx</code><br><br>
-          <strong>Checklist de entrega para B-07:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafInput } from '@/components/ui/SiafInput'</code>.
+          El componente debe usar <code>React.forwardRef</code> para que sea 100% compatible con <code>react-hook-form</code> (la función <code>register</code> necesita pasar ref).
         </div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div class="siaf-input-group"><label class="siaf-label siaf-label-req">RFC</label><input type="text" class="siaf-input" value="ABC010203XY9"></div></div>
+          <div class="do-desc">Usar siempre un label visible y descriptivo.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><input type="text" class="siaf-input" placeholder="RFC"></div>
+          <div class="dont-desc">No usar solo el placeholder como etiqueta (es mala práctica de accesibilidad).</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div>Múltiples pantallas en <code>configuracion/</code> usan <code>&lt;input style={{...}} className='form-control'&gt;</code>.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b06-button-loading.html">B-06 · Button Loading</a>

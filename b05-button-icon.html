@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B-05 · Button — Icon only — UI_PJEV</title>
+<title>B-05 · Button — Icon Only — UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,19 +114,18 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
-      <span>Button — Icon only</span>
+      <span>Button — Icon Only</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">B-05</div>
-        <h1 class="elem-title">Button — Icon only</h1>
-        <p class="elem-desc">Botón con solo ícono, sin texto. Para acciones en columnas de grid.</p>
+        <h1 class="elem-title">Button — Icon Only</h1>
+        <p class="elem-desc">Documentación del elemento B-05.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
           <span class="elem-tag tsx">SiafButton.tsx</span>
@@ -138,19 +137,47 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Botón con solo ícono, sin texto. Para acciones en columnas de grid.</p><p>Esta sección documenta el elemento <strong>B-05 — Button — Icon only</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>Variante del botón que solo contiene un ícono, con padding simétrico. Especialmente útil en columnas de acciones de DataGrids (DG-02). <strong>Obligatorio usar atributo <code>title</code> para accesibilidad.</strong></p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex;gap:8px;">
+        <button class="siaf-btn siaf-btn-primary siaf-btn-icon-only" title="Agregar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+        <button class="siaf-btn siaf-btn-secondary siaf-btn-icon-only" title="Editar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></button>
+        <button class="siaf-btn siaf-btn-danger siaf-btn-icon-only" title="Eliminar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+        <button class="siaf-btn siaf-btn-ghost siaf-btn-icon-only" title="Ver detalle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:12px;">
+        <button class="siaf-btn siaf-btn-ghost siaf-btn-sm siaf-btn-icon-only" title="Ver (sm)"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        <button class="siaf-btn siaf-btn-secondary siaf-btn-sm siaf-btn-icon-only" title="Editar (sm)"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></button>
+        <button class="siaf-btn siaf-btn-danger siaf-btn-sm siaf-btn-icon-only" title="Eliminar (sm)"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>iconOnly</code></td><td><span class="badge-opt">Opcional</span></td><td><code>false</code></td><td>Aplica padding simétrico al botón</td></tr>
+      <tr><td><code>title</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Texto del tooltip para accesibilidad (prop nativa HTML)</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
@@ -158,11 +185,16 @@
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
         <div class="code-tabs"><button class="code-tab active">TSX — SiafButton.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafButton.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-block" id="code-main-B-05">
+          <button class="copy-btn" onclick="copyCode('code-main-B-05',this)">Copiar</button>
+          <pre><span class="cm">// Ver implementación completa en B-01 (SiafButton.tsx)</span>
+<span class="cm">// Uso:</span>
+&lt;<span class="tp">SiafButton</span> 
+  <span class="at">variant</span>=<span class="str">"ghost"</span> 
+  <span class="at">iconOnly</span> 
+  <span class="at">icon</span>={&lt;<span class="tp">Pencil</span> <span class="at">size</span>={14}/&gt;} 
+  <span class="at">title</span>=<span class="str">"Editar registro"</span>
+/&gt;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +202,44 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
         <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafButton.tsx</code><br><br>
-          <strong>Checklist de entrega para B-05:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafButton } from '@/components/ui/SiafButton'</code>.
+          Asegúrate de que la clase CSS <code>.siaf-btn-icon-only</code> aplique un padding igual en todos los lados (ej: <code>padding: 8px;</code> o <code>5px</code> en <code>sm</code>) para que el botón sea un cuadrado perfecto.
         </div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button class="siaf-btn siaf-btn-ghost siaf-btn-icon-only" title="Editar"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></button></div>
+          <div class="do-desc">Añadir siempre el atributo title para que los usuarios (y lectores de pantalla) sepan qué hace el ícono.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button class="siaf-btn siaf-btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></button></div>
+          <div class="dont-desc">No olvidar prop iconOnly (quedará desalineado por padding asimétrico) y no olvidar title.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div><strong>polizas/page.tsx</strong>: Las acciones en las filas de la tabla están hechas con <code>&lt;button style={{...}}&gt;&lt;svg/&gt;&lt;/button&gt;</code> sin estandarización.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b04-button-ghost.html">B-04 · Button Ghost</a>

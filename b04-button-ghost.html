@@ -114,8 +114,7 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
@@ -126,7 +125,7 @@
       <div>
         <div class="elem-id">B-04</div>
         <h1 class="elem-title">Button — Ghost</h1>
-        <p class="elem-desc">Acción de menor jerarquía: cerrar panel, limpiar filtros, descartar sin guardar.</p>
+        <p class="elem-desc">Documentación del elemento B-04.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
           <span class="elem-tag tsx">SiafButton.tsx</span>
@@ -138,19 +137,42 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Acción de menor jerarquía: cerrar panel, limpiar filtros, descartar sin guardar.</p><p>Esta sección documenta el elemento <strong>B-04 — Button — Ghost</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>Botón transparente con bordes sutiles o sin bordes. Se usa para acciones terciarias o de menor jerarquía visual, como filtros, menús desplegables o acciones en toolbars.</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <button class="siaf-btn siaf-btn-ghost siaf-btn-sm">Filtrar (sm)</button>
+      <button class="siaf-btn siaf-btn-ghost">Filtrar (md)</button>
+      <button class="siaf-btn siaf-btn-ghost siaf-btn-lg">Filtrar (lg)</button>
+      <div style="width:100%;height:10px;"></div>
+      <button class="siaf-btn siaf-btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg> Filtros avanzados</button>
+      <button class="siaf-btn siaf-btn-ghost" disabled>Deshabilitado</button>
+      <button class="siaf-btn siaf-btn-ghost siaf-btn-loading"><div class="siaf-spinner"></div> Cargando...</button>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>variant</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Debe ser <code>'ghost'</code></td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
@@ -158,11 +180,11 @@
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
         <div class="code-tabs"><button class="code-tab active">TSX — SiafButton.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafButton.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-block" id="code-main-B-04">
+          <button class="copy-btn" onclick="copyCode('code-main-B-04',this)">Copiar</button>
+          <pre><span class="cm">// Ver implementación completa en B-01 (SiafButton.tsx)</span>
+<span class="cm">// Uso:</span>
+&lt;<span class="tp">SiafButton</span> <span class="at">variant</span>=<span class="str">"ghost"</span> <span class="at">icon</span>={&lt;<span class="tp">Filter</span> <span class="at">size</span>={14}/&gt;}&gt;Filtrar&lt;/<span class="tp">SiafButton</span>&gt;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +192,44 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
         <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafButton.tsx</code><br><br>
-          <strong>Checklist de entrega para B-04:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafButton } from '@/components/ui/SiafButton'</code>.
+          El botón ghost debe mantener el mismo padding que los demás botones para alinear correctamente, pero su color de texto por defecto es <code>--pjev-texto-muted</code>.
         </div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button class="siaf-btn siaf-btn-ghost">Ver opciones</button></div>
+          <div class="do-desc">Usar en barras de herramientas o menús donde múltiples botones primarios o secundarios saturarían la vista.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><a href="#" style="color: blue; text-decoration: underline;">Ver opciones</a></div>
+          <div class="dont-desc">No usar enlaces nativos para disparar acciones de UI que deberían ser botones ghost.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div>Múltiples vistas donde las opciones terciarias se resuelven con hipervínculos azules sin estilo corporativo.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b03-button-danger.html">B-03 · Button Danger</a>

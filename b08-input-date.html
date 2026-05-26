@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B-08 · Input — Date — UI_PJEV</title>
+<title>B-08 · Input Date — UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,19 +114,18 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
-      <span>Input — Date</span>
+      <span>Input Date</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">B-08</div>
-        <h1 class="elem-title">Input — Date</h1>
-        <p class="elem-desc">Campo de fecha. Usa el input nativo con estilos consistentes.</p>
+        <h1 class="elem-title">Input Date</h1>
+        <p class="elem-desc">Variante de SiafInput para fechas.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
           <span class="elem-tag tsx">SiafInput.tsx</span>
@@ -138,19 +137,47 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Campo de fecha. Usa el input nativo con estilos consistentes.</p><p>Esta sección documenta el elemento <strong>B-08 — Input — Date</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>Utiliza el input de tipo fecha nativo del navegador pero mantiene el estilo consistente del sistema. Para la mayoría de los casos, la experiencia nativa de <code>type="date"</code> es suficiente y accesible.</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:400px;">
+        <div class="siaf-input-group">
+          <label class="siaf-label">Fecha de inicio</label>
+          <input type="date" class="siaf-input">
+          <span class="siaf-hint">Formato: DD/MM/AAAA</span>
+        </div>
+        <div class="siaf-input-group">
+          <label class="siaf-label">Fecha de cierre</label>
+          <input type="date" class="siaf-input" disabled value="2026-12-31">
+        </div>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>type</code></td><td><span class="badge-req">Requerido</span></td><td><code>'text'</code></td><td>Pasar <code>'date'</code> a SiafInput</td></tr>
+      <tr><td><code>min</code> / <code>max</code></td><td><span class="badge-opt">Opcional</span></td><td>-</td><td>String formato YYYY-MM-DD para restringir</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
@@ -158,11 +185,15 @@
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
         <div class="code-tabs"><button class="code-tab active">TSX — SiafInput.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafInput.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-block" id="code-main-B-08">
+          <button class="copy-btn" onclick="copyCode('code-main-B-08',this)">Copiar</button>
+          <pre><span class="cm">// Se utiliza el mismo componente SiafInput</span>
+&lt;<span class="tp">SiafInput</span>
+  <span class="at">type</span>=<span class="str">"date"</span>
+  <span class="at">label</span>=<span class="str">"Fecha de inicio"</span>
+  <span class="at">hint</span>=<span class="str">"Formato: DD/MM/AAAA"</span>
+  <span class="at">min</span>=<span class="str">"2026-01-01"</span>
+/&gt;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +201,42 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafInput.tsx</code><br><br>
-          <strong>Checklist de entrega para B-08:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafInput } from '@/components/ui/SiafInput'</code>.
-        </div>
+        <div>Siempre agregar el hint de formato (DD/MM/AAAA) porque algunos navegadores muestran formatos diferentes dependiendo del idioma del SO.</div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div class="siaf-input-group"><label class="siaf-label">Fecha</label><input type="date" class="siaf-input"><span class="siaf-hint">Formato: DD/MM/AAAA</span></div></div>
+          <div class="do-desc">Incluir restricciones de fechas (min/max) cuando aplique (ej: dentro del ejercicio fiscal).</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div class="siaf-input-group"><label class="siaf-label">Fecha</label><input type="text" class="siaf-input" placeholder="DD/MM/AAAA"></div></div>
+          <div class="dont-desc">No usar type="text" esperando que el usuario escriba las barras (/).</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div>Falta de unificación en los datepickers, algunos usan inputs de texto, otros librerías externas.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b07-input-text.html">B-07 · Input text</a>

@@ -2,9 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FB-05 · Modal — Confirmación — UI_PJEV</title>
+<title>FB-05 - Modal Confirmacin - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -20,7 +19,7 @@
     <span class="topbar-crumb-sep">›</span>
     <span class="topbar-crumb-item" style="color:rgba(255,255,255,0.55);">Feedback</span>
     <span class="topbar-crumb-sep">›</span>
-    <span class="topbar-crumb-item active">Modal — Confirmación</span>
+    <span class="topbar-crumb-item active">Modal Confirmación</span>
   </div>
   <div class="topbar-right">
     <span class="topbar-version">v1.0.0</span>
@@ -67,7 +66,7 @@
       <a class="sidebar-link" href="fb02-toast-error.html">Toast Error <span class="sidebar-id">FB-02</span></a>
       <a class="sidebar-link" href="fb03-toast-warning.html">Toast Warning <span class="sidebar-id">FB-03</span></a>
       <a class="sidebar-link" href="fb04-toast-info.html">Toast Info <span class="sidebar-id">FB-04</span></a>
-      <a class="sidebar-link" href="fb05-modal-confirm.html">Modal Confirmación <span class="sidebar-id">FB-05</span></a>
+      <a class="sidebar-link active" href="fb05-modal-confirm.html">Modal Confirmación <span class="sidebar-id">FB-05</span></a>
       <a class="sidebar-link" href="fb06-modal-destructivo.html">Modal Destructivo <span class="sidebar-id">FB-06</span></a>
       <a class="sidebar-link" href="fb07-modal-form.html">Modal Formulario <span class="sidebar-id">FB-07</span></a>
       <a class="sidebar-link" href="fb08-empty-state.html">Empty state <span class="sidebar-id">FB-08</span></a>
@@ -114,92 +113,107 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Feedback</span> ›
-      <span>Modal — Confirmación</span>
+      <span>Modal Confirmacin</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">FB-05</div>
-        <h1 class="elem-title">Modal — Confirmación</h1>
-        <p class="elem-desc">Diálogo de confirmación simple. Para acciones reversibles.</p>
+        <h1 class="elem-title">Modal Confirmacin</h1>
+        <p class="elem-desc">Modal estndar para confirmar acciones.</p>
         <div class="elem-meta">
           <span class="elem-tag">Feedback</span>
           <span class="elem-tag tsx">SiafModal.tsx</span>
         </div>
       </div>
-      <span class="status-badge migrar">Migrar CancelModal.tsx</span>
+      <span class="status-badge nuevo">Nuevo componente</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Diálogo de confirmación simple. Para acciones reversibles.</p><p>Esta sección documenta el elemento <strong>FB-05 — Modal — Confirmación</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Interrumpe el flujo para asegurar que el usuario quiere proceder con una accin importante no destructiva.</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="position:relative; background:#0004; min-height:220px; border-radius:8px; display:flex; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:28px; max-width:400px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.25);">
+          <h3 style="font-size:16px; font-weight:700; color:#183125; margin-bottom:8px;">Confirmar registro</h3>
+          <p style="font-size:13px; color:#5A5A5A; margin-bottom:20px;">Deseas registrar este movimiento? Esta accin quedar guardada en el sistema.</p>
+          <div style="display:flex; gap:8px; justify-content:flex-end;">
+            <button class="siaf-btn siaf-btn-secondary siaf-btn-sm">Cancelar</button>
+            <button class="siaf-btn siaf-btn-primary siaf-btn-sm">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>variant</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td><code>'confirm'</code></td></tr>
+      <tr><td><code>onConfirm</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Handler</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafModal.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafModal.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - SiafModal.tsx</button></div>
+        <div class="code-block" id="code-main-FB-05">
+          <button class="copy-btn" onclick="copyCode('code-main-FB-05',this)">Copiar</button>
+          <pre>&lt;<span class="tp">SiafModal</span> <span class="at">variant</span>=<span class="str">"confirm"</span> /&gt;</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
-      <div class="callout info">
-        <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafModal.tsx</code><br><br>
-          <strong>Checklist de entrega para FB-05:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafModal } from '@/components/ui/SiafModal'</code>.
-        </div>
-      </div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      
+      <div class="callout info"><span class="callout-icon">📋</span><div>Extender el modal existente para soportar props estandarizadas.</div></div>
+    
     </div>
 
-    <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Confirmar guardado</div></div>
+          <div class="do-desc">Preguntar con claridad.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Ests seguro?</div></div>
+          <div class="dont-desc">Tener ttulos ambiguos.</div>
+        </div>
       </div>
     </div>
 
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div>Modales con estilos inline.</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="fb04-toast-info.html">FB-04 · Toast Info</a>

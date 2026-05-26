@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>F-01 · Tokens CSS — UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
@@ -36,7 +35,7 @@
     </div>
     <div class="sidebar-group">
       <div class="sidebar-group-label">Foundations</div>
-      <a class="sidebar-link" href="f01-tokens.html">Tokens CSS <span class="sidebar-id">F-01</span></a>
+      <a class="sidebar-link active" href="f01-tokens.html">Tokens CSS <span class="sidebar-id">F-01</span></a>
       <a class="sidebar-link" href="f02-tipografia.html">Tipografía <span class="sidebar-id">F-02</span></a>
       <a class="sidebar-link" href="f03-espaciado.html">Espaciado <span class="sidebar-id">F-03</span></a>
       <a class="sidebar-link" href="f04-iconografia.html">Iconografía <span class="sidebar-id">F-04</span></a>
@@ -114,8 +113,7 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Foundations</span> ›
@@ -126,149 +124,101 @@
       <div>
         <div class="elem-id">F-01</div>
         <h1 class="elem-title">Tokens CSS</h1>
-        <p class="elem-desc">Las variables CSS raíz del sistema. Todo color, tamaño y espaciado del SIAF-PJEV vive aquí.</p>
+        <p class="elem-desc">Variables CSS (Custom Properties) de color y bordes.</p>
         <div class="elem-meta">
           <span class="elem-tag">Foundations</span>
-          <span class="elem-tag tsx">No genera TSX · Es el archivo <code class='inline-code'>_pjev-tokens.css</code></span>
+          <span class="elem-tag tsx">globals.css</span>
         </div>
       </div>
-      <span class="status-badge nuevo">Paso 1 — bloquea todo</span>
+      <span class="status-badge nuevo">Documentado</span>
     </div>
 
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Los tokens son las decisiones de diseño más importantes del sistema. Cada variable
-        define un valor único que se usa en todos los componentes. Cambiar <code class="inline-code">--pjev-verde-oscuro</code>
-        en este archivo actualiza automáticamente el color de todos los botones, headers y barras del sistema.</p>
-        <p>Este archivo se extrae del <code class="inline-code">globals.css</code> actual del proyecto y se amplía
-        con los tokens que faltan (éxito, error, advertencia, información).</p>
+      <p>Los Design Tokens son los valores atómicos del sistema visual. Se definen como Custom Properties de CSS (variables) en <code>globals.css</code> para garantizar consistencia en todo el proyecto.</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      
-          <div class="preview-box">
-            <div class="preview-bar"><span class="preview-bar-label">Paleta completa</span></div>
-            <div class="preview-area col">
-              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;width:100%">
-                <div>
-                  <div style="height:40px;border-radius:6px;background:#183125;margin-bottom:6px;border:1px solid rgba(0,0,0,0.08)"></div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:var(--pjev-texto-muted)">--pjev-verde-oscuro</div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:#183125;font-weight:700">#183125</div>
-                </div>
-                <div>
-                  <div style="height:40px;border-radius:6px;background:#254a37;margin-bottom:6px;border:1px solid rgba(0,0,0,0.08)"></div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:var(--pjev-texto-muted)">--pjev-verde-medio</div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:#254a37;font-weight:700">#254a37</div>
-                </div>
-                <div>
-                  <div style="height:40px;border-radius:6px;background:#DEAC50;margin-bottom:6px;border:1px solid rgba(0,0,0,0.08)"></div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:var(--pjev-texto-muted)">--pjev-dorado</div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:#b58c3a;font-weight:700">#DEAC50</div>
-                </div>
-                <div>
-                  <div style="height:40px;border-radius:6px;background:#5e111a;margin-bottom:6px;border:1px solid rgba(0,0,0,0.08)"></div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:var(--pjev-texto-muted)">--pjev-rojo-vino</div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:#5e111a;font-weight:700">#5e111a</div>
-                </div>
-                <div>
-                  <div style="height:40px;border-radius:6px;background:#F5F0E8;margin-bottom:6px;border:1px solid #D4C9B5"></div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:var(--pjev-texto-muted)">--pjev-crema</div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:#5a5a5a;font-weight:700">#F5F0E8</div>
-                </div>
-                <div>
-                  <div style="height:40px;border-radius:6px;background:#edf8ef;margin-bottom:6px;border:1px solid #8fd19e"></div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:var(--pjev-texto-muted)">--pjev-success-bg</div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:#166534;font-weight:700">#edf8ef</div>
-                </div>
-                <div>
-                  <div style="height:40px;border-radius:6px;background:#fff1f2;margin-bottom:6px;border:1px solid #f1aeb5"></div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:var(--pjev-texto-muted)">--pjev-error-bg</div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:#991b1b;font-weight:700">#fff1f2</div>
-                </div>
-                <div>
-                  <div style="height:40px;border-radius:6px;background:#fffbeb;margin-bottom:6px;border:1px solid #f5d565"></div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:var(--pjev-texto-muted)">--pjev-warning-bg</div>
-                  <div style="font-size:10px;font-family:var(--font-mono);color:#854d0e;font-weight:700">#fffbeb</div>
-                </div>
-              </div>
-            </div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px;">
+        <!-- Primario -->
+        <div>
+          <div style="background:#183125; width:100%; height:60px; border-radius:6px 6px 0 0;"></div>
+          <div style="padding:8px 12px; background:#fff; border:1px solid #D4C9B5; border-top:none; border-radius:0 0 6px 6px;">
+            <div style="font-size:11px; font-weight:700; color:#183125;">--pjev-verde-oscuro</div>
+            <div style="font-size:10px; color:#5A5A5A; font-family:monospace;">#183125</div>
           </div>
+        </div>
+        <!-- Secundario -->
+        <div>
+          <div style="background:#254a37; width:100%; height:60px; border-radius:6px 6px 0 0;"></div>
+          <div style="padding:8px 12px; background:#fff; border:1px solid #D4C9B5; border-top:none; border-radius:0 0 6px 6px;">
+            <div style="font-size:11px; font-weight:700; color:#183125;">--pjev-verde-medio</div>
+            <div style="font-size:10px; color:#5A5A5A; font-family:monospace;">#254a37</div>
+          </div>
+        </div>
+        <!-- Dorado -->
+        <div>
+          <div style="background:#DEAC50; width:100%; height:60px; border-radius:6px 6px 0 0;"></div>
+          <div style="padding:8px 12px; background:#fff; border:1px solid #D4C9B5; border-top:none; border-radius:0 0 6px 6px;">
+            <div style="font-size:11px; font-weight:700; color:#183125;">--pjev-dorado</div>
+            <div style="font-size:10px; color:#5A5A5A; font-family:monospace;">#DEAC50</div>
+          </div>
+        </div>
+        <!-- Crema -->
+        <div>
+          <div style="background:#F5F0E8; width:100%; height:60px; border-radius:6px 6px 0 0; border:1px solid #D4C9B5; border-bottom:none;"></div>
+          <div style="padding:8px 12px; background:#fff; border:1px solid #D4C9B5; border-top:none; border-radius:0 0 6px 6px;">
+            <div style="font-size:11px; font-weight:700; color:#183125;">--pjev-crema</div>
+            <div style="font-size:10px; color:#5A5A5A; font-family:monospace;">#F5F0E8</div>
+          </div>
+        </div>
+        <!-- Rojo vino -->
+        <div>
+          <div style="background:#5e111a; width:100%; height:60px; border-radius:6px 6px 0 0;"></div>
+          <div style="padding:8px 12px; background:#fff; border:1px solid #D4C9B5; border-top:none; border-radius:0 0 6px 6px;">
+            <div style="font-size:11px; font-weight:700; color:#183125;">--pjev-rojo-vino</div>
+            <div style="font-size:10px; color:#5A5A5A; font-family:monospace;">#5e111a</div>
+          </div>
+        </div>
+        <!-- Borde -->
+        <div>
+          <div style="background:#D4C9B5; width:100%; height:60px; border-radius:6px 6px 0 0;"></div>
+          <div style="padding:8px 12px; background:#fff; border:1px solid #D4C9B5; border-top:none; border-radius:0 0 6px 6px;">
+            <div style="font-size:11px; font-weight:700; color:#183125;">--pjev-borde</div>
+            <div style="font-size:10px; color:#5A5A5A; font-family:monospace;">#D4C9B5</div>
+          </div>
+        </div>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-            <table class="props-table">
-        <thead><tr>
-          <th style="width:200px;">Token / Prop</th>
-          <th style="width:80px;">Tipo</th>
-          <th style="width:110px;">Valor</th>
-          <th>Descripción</th>
-        </tr></thead>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
         <tbody>
-        <tr>
-          <td><code>--pjev-verde-oscuro</code></td>
-          <td><code>color</code></td>
-          <td><code>#183125</code></td>
-          <td style="font-size:12px;">Color primario institucional. Topbar, botones primary, texto de título.</td>
-        </tr>
-        <tr>
-          <td><code>--pjev-verde-medio</code></td>
-          <td><code>color</code></td>
-          <td><code>#254a37</code></td>
-          <td style="font-size:12px;">Hover state del botón primary.</td>
-        </tr>
-        <tr>
-          <td><code>--pjev-verde-claro</code></td>
-          <td><code>color</code></td>
-          <td><code>#33614a</code></td>
-          <td style="font-size:12px;">Active state del botón primary.</td>
-        </tr>
-        <tr>
-          <td><code>--pjev-dorado</code></td>
-          <td><code>color</code></td>
-          <td><code>#DEAC50</code></td>
-          <td style="font-size:12px;">Logo, subrayado de sistema activo en topbar.</td>
-        </tr>
-        <tr>
-          <td><code>--pjev-rojo-vino</code></td>
-          <td><code>color</code></td>
-          <td><code>#5e111a</code></td>
-          <td style="font-size:12px;">Acciones destructivas, badges de cancelado/rechazado.</td>
-        </tr>
-        <tr>
-          <td><code>--pjev-crema</code></td>
-          <td><code>color</code></td>
-          <td><code>#F5F0E8</code></td>
-          <td style="font-size:12px;">Fondo general de página, hover de sidebar, filas alternas.</td>
-        </tr>
-        <tr>
-          <td><code>--pjev-blanco</code></td>
-          <td><code>color</code></td>
-          <td><code>#FFFFFF</code></td>
-          <td style="font-size:12px;">Fondo de cards, sidebar, inputs, modales.</td>
-        </tr>
-        <tr>
-          <td><code>--pjev-texto</code></td>
-          <td><code>color</code></td>
-          <td><code>#1A1A1A</code></td>
-          <td style="font-size:12px;">Texto principal.</td>
-        </tr>
-        <tr>
-          <td><code>--pjev-texto-muted</code></td>
-          <td><code>color</code></td>
-          <td><code>#5A5A5A</code></td>
-          <td style="font-size:12px;">Texto secundario, labels, hints.</td>
-        </tr>
-        <tr>
-          <td><code>--pjev-borde</code></td>
-          <td><code>color</code></td>
-          <td><code>#D4C9B5</code></td>
-          <td style="font-size:12px;">Bordes de cards, inputs, tablas.</td>
-        </tr>
+          
+      <tr><td><code>--pjev-verde-oscuro</code></td><td>Color</td><td><code>#183125</code></td><td>Color principal (botones primary, headers)</td></tr>
+      <tr><td><code>--pjev-dorado</code></td><td>Color</td><td><code>#DEAC50</code></td><td>Color de acento</td></tr>
+      <tr><td><code>--pjev-rojo-vino</code></td><td>Color</td><td><code>#5e111a</code></td><td>Color destructivo / danger</td></tr>
+      <tr><td><code>--pjev-crema</code></td><td>Color</td><td><code>#F5F0E8</code></td><td>Fondo de aplicación</td></tr>
+      <tr><td><code>--pjev-borde</code></td><td>Color</td><td><code>#D4C9B5</code></td><td>Bordes de tarjetas, inputs y tablas</td></tr>
+      <tr><td><code>--pjev-texto</code></td><td>Color</td><td><code>#1A1A1A</code></td><td>Texto principal</td></tr>
+      <tr><td><code>--pjev-texto-muted</code></td><td>Color</td><td><code>#5A5A5A</code></td><td>Texto secundario / hints</td></tr>
+    
         </tbody>
       </table>
     </div>
@@ -277,43 +227,23 @@
     <div class="doc-section">
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">_pjev-tokens.css — archivo completo</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class="cm">/* _pjev-tokens.css */</span>
-<span class="cm">/* Importar en globals.css: @import './_pjev-tokens.css'; */</span>
+        <div class="code-tabs"><button class="code-tab active">TSX — globals.css</button></div>
+        <div class="code-block" id="code-main-F-01">
+          <button class="copy-btn" onclick="copyCode('code-main-F-01',this)">Copiar</button>
+          <pre><span class="kw">:root</span> {
+  <span class="cm">/* Colores de Marca */</span>
+  <span class="at">--pjev-verde-oscuro</span>: <span class="str">#183125</span>;
+  <span class="at">--pjev-verde-medio</span>: <span class="str">#254a37</span>;
+  <span class="at">--pjev-dorado</span>: <span class="str">#DEAC50</span>;
+  <span class="at">--pjev-crema</span>: <span class="str">#F5F0E8</span>;
+  <span class="at">--pjev-blanco</span>: <span class="str">#FFFFFF</span>;
+  <span class="at">--pjev-rojo-vino</span>: <span class="str">#5e111a</span>;
 
-<span class="tx">:root {</span>
-  <span class="cm">/* ── Paleta oficial PJEV ── */</span>
-  <span class="at">--pjev-verde-oscuro</span><span class="op">:</span>  <span class="nm">#183125</span><span class="op">;</span>
-  <span class="at">--pjev-verde-medio</span><span class="op">:</span>   <span class="nm">#254a37</span><span class="op">;</span>
-  <span class="at">--pjev-verde-claro</span><span class="op">:</span>   <span class="nm">#33614a</span><span class="op">;</span>
-  <span class="at">--pjev-dorado</span><span class="op">:</span>        <span class="nm">#DEAC50</span><span class="op">;</span>
-  <span class="at">--pjev-dorado-dim</span><span class="op">:</span>    <span class="nm">#b58c3a</span><span class="op">;</span>
-  <span class="at">--pjev-rojo-vino</span><span class="op">:</span>     <span class="nm">#5e111a</span><span class="op">;</span>
-  <span class="at">--pjev-crema</span><span class="op">:</span>         <span class="nm">#F5F0E8</span><span class="op">;</span>
-  <span class="at">--pjev-blanco</span><span class="op">:</span>        <span class="nm">#FFFFFF</span><span class="op">;</span>
-  <span class="at">--pjev-texto</span><span class="op">:</span>         <span class="nm">#1A1A1A</span><span class="op">;</span>
-  <span class="at">--pjev-texto-muted</span><span class="op">:</span>   <span class="nm">#5A5A5A</span><span class="op">;</span>
-  <span class="at">--pjev-borde</span><span class="op">:</span>         <span class="nm">#D4C9B5</span><span class="op">;</span>
-
-  <span class="cm">/* ── Semánticos — estados de retroalimentación ── */</span>
-  <span class="at">--pjev-success-bg</span><span class="op">:</span>    <span class="nm">#edf8ef</span><span class="op">;</span>
-  <span class="at">--pjev-success-borde</span><span class="op">:</span> <span class="nm">#8fd19e</span><span class="op">;</span>
-  <span class="at">--pjev-success-text</span><span class="op">:</span>  <span class="nm">#166534</span><span class="op">;</span>
-  <span class="at">--pjev-error-bg</span><span class="op">:</span>      <span class="nm">#fff1f2</span><span class="op">;</span>
-  <span class="at">--pjev-error-borde</span><span class="op">:</span>   <span class="nm">#f1aeb5</span><span class="op">;</span>
-  <span class="at">--pjev-error-text</span><span class="op">:</span>    <span class="nm">#991b1b</span><span class="op">;</span>
-  <span class="at">--pjev-warning-bg</span><span class="op">:</span>    <span class="nm">#fffbeb</span><span class="op">;</span>
-  <span class="at">--pjev-warning-borde</span><span class="op">:</span> <span class="nm">#f5d565</span><span class="op">;</span>
-  <span class="at">--pjev-warning-text</span><span class="op">:</span>  <span class="nm">#854d0e</span><span class="op">;</span>
-  <span class="at">--pjev-info-bg</span><span class="op">:</span>       <span class="nm">#eff6ff</span><span class="op">;</span>
-  <span class="at">--pjev-info-borde</span><span class="op">:</span>    <span class="nm">#93c5fd</span><span class="op">;</span>
-  <span class="at">--pjev-info-text</span><span class="op">:</span>     <span class="nm">#1d4ed8</span><span class="op">;</span>
-
-  <span class="cm">/* ── Topbar ── */</span>
-  <span class="at">--pjev-topbar-h</span><span class="op">:</span> <span class="nm">56px</span><span class="op">;</span>
-<span class="tx">}</span></pre>
+  <span class="cm">/* UI */</span>
+  <span class="at">--pjev-borde</span>: <span class="str">#D4C9B5</span>;
+  <span class="at">--pjev-texto</span>: <span class="str">#1A1A1A</span>;
+  <span class="at">--pjev-texto-muted</span>: <span class="str">#5A5A5A</span>;
+}</pre>
         </div>
       </div>
     </div>
@@ -321,47 +251,46 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
         <div>
-          <strong>Tarea concreta:</strong> Crear el archivo indicado en <code>components/ui/</code>
-          con las props documentadas en la sección 3, los estilos de la sección 2 como referencia visual,
-          y verificar que el preview de la sección 2 se reproduce exactamente en Next.js.
+          <strong>Checklist para Daryl:</strong><br>
+          1. Asegúrate de que TODAS estas variables estén definidas en el <code>:root</code> de tu CSS global (ej: <code>app/globals.css</code> o <code>_pjev-tokens.css</code>).<br>
+          2. Reemplazar CUALQUIER hex code hardcodeado en el proyecto por el uso de <code>var(--nombre)</code>.
         </div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div style="padding:10px; background:var(--pjev-verde-oscuro); color:#fff;">Fondo correcto</div></div>
+          <div class="do-desc">Usar las variables CSS para todos los colores: <code>background: var(--pjev-verde-oscuro);</code></div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div style="padding:10px; background:#183125; color:#fff;">Fondo incorrecto</div></div>
+          <div class="dont-desc">No usar colores hexadecimales quemados en el código. Esto rompe la consistencia si el color cambia.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-            <div class="deprecated-row">
-        <span style="font-size:15px;flex-shrink:0;">⚠</span>
-        <div><strong>Toda pantalla con COLORS = {...}</strong> — <code>Objeto de colores local</code><br>
-        <em style="font-size:11px;">Eliminar y usar tokens globales</em></div>
-      </div>
+      
       <div class="deprecated-row">
-        <span style="font-size:15px;flex-shrink:0;">⚠</span>
-        <div><strong>transferencias/page.tsx</strong> — <code>COLORS.green = '#285847'</code><br>
-        <em style="font-size:11px;">Reemplazar con var(--pjev-verde-oscuro)</em></div>
+        <div><span class="callout-icon">⚠</span></div>
+        <div>Múltiples componentes que declaran <code>const COLORS = { green: '#285847', ... }</code> en JavaScript.</div>
       </div>
-      <div class="deprecated-row">
-        <span style="font-size:15px;flex-shrink:0;">⚠</span>
-        <div><strong>roles/page.tsx</strong> — <code>color: '#1B3A2D' hardcodeado</code><br>
-        <em style="font-size:11px;">Reemplazar con var(--pjev-verde-oscuro)</em></div>
-      </div>
-
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="index.html">Guía maestra</a>

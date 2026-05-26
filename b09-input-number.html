@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B-09 · Input — Number — UI_PJEV</title>
+<title>B-09 · Input Number (Moneda) — UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,22 +114,21 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
-      <span>Input — Number</span>
+      <span>Input Number (Moneda)</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">B-09</div>
-        <h1 class="elem-title">Input — Number</h1>
-        <p class="elem-desc">Campo numérico con formato de moneda MXN para importes financieros.</p>
+        <h1 class="elem-title">Input Number (Moneda)</h1>
+        <p class="elem-desc">Input especializado para importes financieros.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
-          <span class="elem-tag tsx">SiafInput.tsx</span>
+          <span class="elem-tag tsx">SiafInputNumber.tsx</span>
         </div>
       </div>
       <span class="status-badge nuevo">Nuevo componente</span>
@@ -138,31 +137,58 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Campo numérico con formato de moneda MXN para importes financieros.</p><p>Esta sección documenta el elemento <strong>B-09 — Input — Number</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>Campo diseñado para la captura de dinero (importes, precios). Muestra un prefijo de moneda y alinea el texto a la derecha. Debe almacenar el valor como <code>number</code> pero mostrarlo formateado con comas (solo lectura) o al salir del foco.</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:400px;">
+        <div class="siaf-input-group">
+          <label class="siaf-label siaf-label-req">Importe</label>
+          <div style="position:relative;">
+            <span style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#5A5A5A;">$</span>
+            <input type="text" class="siaf-input" value="1,234,567.89" style="padding-left:24px; text-align:right; font-family:monospace; font-size:14px;">
+          </div>
+        </div>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>prefix</code></td><td><span class="badge-opt">Opcional</span></td><td><code>'
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafInput.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafInput.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX — SiafInputNumber.tsx</button></div>
+        <div class="code-block" id="code-main-B-09">
+          <button class="copy-btn" onclick="copyCode('code-main-B-09',this)">Copiar</button>
+          <pre><span class="cm">// Un componente envoltorio sobre el input normal</span>
+&lt;<span class="tp">SiafInputNumber</span>
+  <span class="at">label</span>=<span class="str">"Importe total"</span>
+  <span class="at">prefix</span>=<span class="str">"$"</span>
+  <span class="at">formatCurrency</span>={true}
+/&gt;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +196,104 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafInput.tsx</code><br><br>
-          <strong>Checklist de entrega para B-09:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafInput } from '@/components/ui/SiafInput'</code>.
-        </div>
+        <div>Para la captura de dinero en React, lo mejor es usar un input de texto y manejar el formateo onBlur, o usar una librería ligera como <code>react-number-format</code> dentro de este componente. El valor enviado al form debe ser numérico.</div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div style="position:relative;"><span style="position:absolute; left:12px; top:9px;">$</span><input type="text" class="siaf-input" value="100.50" style="padding-left:24px;text-align:right;"></div></div>
+          <div class="do-desc">Mantener el prefijo separado del valor del input.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><input type="text" class="siaf-input" value="$ 100.50"></div>
+          <div class="dont-desc">No mezclar el símbolo en el string del valor, rompe validaciones numéricas.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div>Uso de type="number" nativo que no soporta separadores de miles y causa mala experiencia de usuario.</div>
+      </div>
+    
+    </div>
+</code></td><td>Símbolo de moneda</td></tr>
+      <tr><td><code>formatCurrency</code></td><td><span class="badge-opt">Opcional</span></td><td><code>true</code></td><td>Aplica Intl.NumberFormat(es-MX) al mostrar</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
-    <div class="doc-footer">
+    <!-- 4. CÓDIGO -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="code-wrap">
+        <div class="code-tabs"><button class="code-tab active">TSX — SiafInputNumber.tsx</button></div>
+        <div class="code-block" id="code-main-B-09">
+          <button class="copy-btn" onclick="copyCode('code-main-B-09',this)">Copiar</button>
+          <pre><span class="cm">// Un componente envoltorio sobre el input normal</span>
+&lt;<span class="tp">SiafInputNumber</span>
+  <span class="at">label</span>=<span class="str">"Importe total"</span>
+  <span class="at">prefix</span>=<span class="str">"$"</span>
+  <span class="at">formatCurrency</span>={true}
+/&gt;</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. INSTRUCCIONES PARA DARYL -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
+      <div class="callout info">
+        <span class="callout-icon">📋</span>
+        <div>Para la captura de dinero en React, lo mejor es usar un input de texto y manejar el formateo onBlur, o usar una librería ligera como <code>react-number-format</code> dentro de este componente. El valor enviado al form debe ser numérico.</div>
+      </div>
+    
+    </div>
+
+    <!-- 6. DO / DON'T -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div style="position:relative;"><span style="position:absolute; left:12px; top:9px;">$</span><input type="text" class="siaf-input" value="100.50" style="padding-left:24px;text-align:right;"></div></div>
+          <div class="do-desc">Mantener el prefijo separado del valor del input.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><input type="text" class="siaf-input" value="$ 100.50"></div>
+          <div class="dont-desc">No mezclar el símbolo en el string del valor, rompe validaciones numéricas.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. DEPRECADOS -->
+    <div class="doc-section">
+      <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div>Uso de type="number" nativo que no soporta separadores de miles y causa mala experiencia de usuario.</div>
+      </div>
+    
+    </div>
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b08-input-date.html">B-08 · Input date</a>

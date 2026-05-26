@@ -2,9 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DG-02 · Data Grid — Acciones — UI_PJEV</title>
+<title>DG-02 - DataGrid Acciones - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -20,7 +19,7 @@
     <span class="topbar-crumb-sep">›</span>
     <span class="topbar-crumb-item" style="color:rgba(255,255,255,0.55);">Data Grid</span>
     <span class="topbar-crumb-sep">›</span>
-    <span class="topbar-crumb-item active">Data Grid — Acciones</span>
+    <span class="topbar-crumb-item active">Grid con Acciones</span>
   </div>
   <div class="topbar-right">
     <span class="topbar-version">v1.0.0</span>
@@ -87,7 +86,7 @@
     <div class="sidebar-group">
       <div class="sidebar-group-label">Data Grid</div>
       <a class="sidebar-link" href="dg01-grid-base.html">Grid base <span class="sidebar-id">DG-01</span></a>
-      <a class="sidebar-link" href="dg02-grid-acciones.html">Grid con acciones <span class="sidebar-id">DG-02</span></a>
+      <a class="sidebar-link active" href="dg02-grid-acciones.html">Grid con acciones <span class="sidebar-id">DG-02</span></a>
       <a class="sidebar-link" href="dg03-columna-sort.html">Columna ordenable <span class="sidebar-id">DG-03</span></a>
       <a class="sidebar-link" href="dg04-col-toggle.html">Mostrar/ocultar cols <span class="sidebar-id">DG-04</span></a>
       <a class="sidebar-link" href="dg05-totales.html">Fila de totales <span class="sidebar-id">DG-05</span></a>
@@ -114,95 +113,107 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Data Grid</span> ›
-      <span>Data Grid — Acciones</span>
+      <span>DataGrid Acciones</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">DG-02</div>
-        <h1 class="elem-title">Data Grid — Acciones</h1>
-        <p class="elem-desc">Grid con columna Acciones fija a la derecha que dispara modales.</p>
+        <h1 class="elem-title">DataGrid Acciones</h1>
+        <p class="elem-desc">Columna de acciones por fila.</p>
         <div class="elem-meta">
           <span class="elem-tag">Data Grid</span>
-          <span class="elem-tag tsx">SiafDataGrid.tsx</span>
+          <span class="elem-tag tsx">Columna Acciones</span>
         </div>
       </div>
       <span class="status-badge nuevo">Nuevo componente</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Grid con columna Acciones fija a la derecha que dispara modales.</p><p>Esta sección documenta el elemento <strong>DG-02 — Data Grid — Acciones</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Columna estandarizada (usualmente la ltima) que contiene iconos (B-05 Button Icon) para editar, eliminar o ver el detalle del registro.</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="padding:8px 16px; display:flex; gap:8px; align-items:center;">
+        <button class="siaf-btn siaf-btn-ghost siaf-btn-sm" title="Ver detalle">O</button>
+        <button class="siaf-btn siaf-btn-ghost siaf-btn-sm" title="Editar">✏</button>
+        <button class="siaf-btn siaf-btn-danger siaf-btn-sm" title="Eliminar">🗑</button>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          
+      <tr><td>N/A</td><td>-</td><td>-</td><td>Se define en la configuracin de columnas.</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafDataGrid.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafDataGrid.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - Columna Acciones</button></div>
+        <div class="code-block" id="code-main-DG-02">
+          <button class="copy-btn" onclick="copyCode('code-main-DG-02',this)">Copiar</button>
+          <pre>const columns = [
+  {
+    id: 'acciones',
+    cell: ({row}) => &lt;<span class="tp">ActionCell</span> <span class="at">row</span>={row} /&gt;
+  }
+]</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
-      <div class="callout info">
-        <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafDataGrid.tsx</code><br><br>
-          <strong>Checklist de entrega para DG-02:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafDataGrid } from '@/components/ui/SiafDataGrid'</code>.
-        </div>
-      </div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      <div class="callout info"><span class="callout-icon">📋</span><div>Usar tooltips obligatorios.</div></div>
     </div>
 
-    <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Iconos sutiles con tooltip.</div></div>
+          <div class="do-desc">Usar la variante ghost o icon-only para que no pesen visualmente.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Botones grandes con texto "Editar" en cada fila.</div></div>
+          <div class="dont-desc">Llena la tabla de ruido visual innecesario.</div>
+        </div>
       </div>
     </div>
 
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div>-</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
-        <a class="foot-nav-link" href="dg01-grid-base.html">DG-01 · Grid base</a>
+        <a class="foot-nav-link" href="dg01-grid-base.html">DG-01 · Grid Base</a>
       </div>
       <div class="foot-center">
         UI_PJEV · Sistema de diseño SIAF-PJEV<br>
@@ -210,7 +221,7 @@
       </div>
       <div class="foot-nav" style="align-items:flex-end;">
         <span class="foot-nav-label">Siguiente →</span>
-        <a class="foot-nav-link" href="dg03-columna-sort.html">DG-03 · Columna sort</a>
+        <a class="foot-nav-link" href="dg03-columna-sort.html">DG-03 · Columna ordenable</a>
       </div>
     </div>
 

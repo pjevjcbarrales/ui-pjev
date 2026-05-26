@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FB-10 · Error inline de campo — UI_PJEV</title>
+<title>FB-10 - Error Inline - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,92 +114,101 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Feedback</span> ›
-      <span>Error inline de campo</span>
+      <span>Error Inline</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">FB-10</div>
-        <h1 class="elem-title">Error inline de campo</h1>
-        <p class="elem-desc">Mensaje de error bajo el campo que lo causó. Se integra en SiafFormGroup.</p>
+        <h1 class="elem-title">Error Inline</h1>
+        <p class="elem-desc">Error de validacin de campos.</p>
         <div class="elem-meta">
           <span class="elem-tag">Feedback</span>
-          <span class="elem-tag tsx">SiafFormGroup.tsx</span>
+          <span class="elem-tag tsx">SiafInput.tsx</span>
         </div>
       </div>
-      <span class="status-badge nuevo">Nuevo componente</span>
+      <span class="status-badge nuevo">Documentado</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Mensaje de error bajo el campo que lo causó. Se integra en SiafFormGroup.</p><p>Esta sección documenta el elemento <strong>FB-10 — Error inline de campo</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Notificacin especfica y contextual para un error en un formulario, ubicado inmediatamente bajo el campo en cuestin.</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div class="siaf-input-group" style="max-width:300px;">
+        <label class="siaf-label siaf-label-req">RFC</label>
+        <input type="text" class="siaf-input error" value="abc">
+        <span class="siaf-error-msg">El RFC debe tener exactamente 13 caracteres.</span>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>error</code></td><td><span class="badge-opt">Opcional</span></td><td>-</td><td>El string a mostrar.</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafFormGroup.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafFormGroup.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - SiafInput.tsx</button></div>
+        <div class="code-block" id="code-main-FB-10">
+          <button class="copy-btn" onclick="copyCode('code-main-FB-10',this)">Copiar</button>
+          <pre>&lt;<span class="tp">SiafInput</span> <span class="at">error</span>={errors.rfc?.message} /&gt;</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
-      <div class="callout info">
-        <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafFormGroup.tsx</code><br><br>
-          <strong>Checklist de entrega para FB-10:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafFormGroup } from '@/components/ui/SiafFormGroup'</code>.
-        </div>
-      </div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      
+      <div class="callout info"><span class="callout-icon">📋</span><div>Ya se encuentra integrado dentro de SiafInput y dems componentes de formulario (B-07 a B-11).</div></div>
+    
     </div>
 
-    <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Error inline bajo el input</div></div>
+          <div class="do-desc">El contexto inmediato es ms claro.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Toast con 5 errores listados</div></div>
+          <div class="dont-desc">No usar toasts para validaciones de esquema (Zod).</div>
+        </div>
       </div>
     </div>
 
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div>-</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="fb09-skeleton.html">FB-09 · Skeleton</a>

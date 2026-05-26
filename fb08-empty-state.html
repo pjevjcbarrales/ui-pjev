@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FB-08 · Empty state — UI_PJEV</title>
+<title>FB-08 - Empty State - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,92 +114,102 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Feedback</span> ›
-      <span>Empty state</span>
+      <span>Empty State</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">FB-08</div>
-        <h1 class="elem-title">Empty state</h1>
-        <p class="elem-desc">Estado vacío cuando no hay registros. Incluye ícono, mensaje y acción primaria.</p>
+        <h1 class="elem-title">Empty State</h1>
+        <p class="elem-desc">Estado de vaco para tablas o vistas.</p>
         <div class="elem-meta">
           <span class="elem-tag">Feedback</span>
-          <span class="elem-tag tsx">Inline en DataGrid</span>
+          <span class="elem-tag tsx">SiafEmptyState.tsx</span>
         </div>
       </div>
       <span class="status-badge nuevo">Nuevo componente</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Estado vacío cuando no hay registros. Incluye ícono, mensaje y acción primaria.</p><p>Esta sección documenta el elemento <strong>FB-08 — Empty state</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Instruye al usuario qu pas o qu debe hacer cuando no hay datos disponibles (ya sea porque no se han creado o porque la bsqueda no arroj resultados).</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="padding:48px; text-align:center; border:1px dashed #D4C9B5; border-radius:8px; background:#fafafa;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D4C9B5" stroke-width="2" style="margin:0 auto 16px;"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+        <h3 style="font-size:16px; font-weight:700; color:#183125; margin-bottom:8px;">No se encontraron registros</h3>
+        <p style="font-size:14px; color:#5A5A5A; max-width:300px; margin:0 auto 24px;">El catlogo an no tiene registros. Haz clic en el botn para crear el primero.</p>
+        <button class="siaf-btn siaf-btn-primary">Nuevo registro</button>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>icon</code></td><td><span class="badge-opt">Opcional</span></td><td>-</td><td>Icono SVG a mostrar</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — Inline en DataGrid</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// Inline en DataGrid</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - SiafEmptyState.tsx</button></div>
+        <div class="code-block" id="code-main-FB-08">
+          <button class="copy-btn" onclick="copyCode('code-main-FB-08',this)">Copiar</button>
+          <pre>&lt;<span class="tp">SiafEmptyState</span> /&gt;</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
-      <div class="callout info">
-        <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/Inline en DataGrid</code><br><br>
-          <strong>Checklist de entrega para FB-08:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { Inline en DataGrid } from '@/components/ui/Inline en DataGrid'</code>.
-        </div>
-      </div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      
+      <div class="callout info"><span class="callout-icon">📋</span><div>Componente centralizado para evitar variaciones visuales en los estados vacos.</div></div>
+    
     </div>
 
-    <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Explicar por qu est vaco y qu accin tomar.</div></div>
+          <div class="do-desc">Incluir Call to Action.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>No hay datos.</div></div>
+          <div class="dont-desc">No dejar la pantalla vaca sin explicacin.</div>
+        </div>
       </div>
     </div>
 
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div>Tablas que no muestran feedback cuando no hay data.</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="fb07-modal-form.html">FB-07 · Modal Form</a>

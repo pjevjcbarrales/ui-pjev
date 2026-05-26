@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B-06 · Button — Loading — UI_PJEV</title>
+<title>B-06 · Button — Loading State — UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,19 +114,18 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
-      <span>Button — Loading</span>
+      <span>Button — Loading State</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">B-06</div>
-        <h1 class="elem-title">Button — Loading</h1>
-        <p class="elem-desc">Estado de carga del botón. Se activa mientras se espera respuesta de la API.</p>
+        <h1 class="elem-title">Button — Loading State</h1>
+        <p class="elem-desc">Documentación del elemento B-06.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
           <span class="elem-tag tsx">SiafButton.tsx</span>
@@ -138,19 +137,46 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Estado de carga del botón. Se activa mientras se espera respuesta de la API.</p><p>Esta sección documenta el elemento <strong>B-06 — Button — Loading</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>El estado de carga comunica al usuario que un proceso está en curso, evita envíos múltiples y mantiene el contexto de la acción (sin mostrar un loader gigante que cubra toda la pantalla).</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex;gap:16px;align-items:center;">
+        <button class="siaf-btn siaf-btn-primary">Guardar</button>
+        <span>→</span>
+        <button class="siaf-btn siaf-btn-primary siaf-btn-loading"><div class="siaf-spinner"></div> Guardando...</button>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;margin-top:16px;">
+        <button class="siaf-btn siaf-btn-secondary">Generar</button>
+        <span>→</span>
+        <button class="siaf-btn siaf-btn-secondary siaf-btn-loading"><div class="siaf-spinner"></div> Generando...</button>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>loading</code></td><td><span class="badge-opt">Opcional</span></td><td><code>false</code></td><td>Si es true, muestra el spinner y deshabilita el botón internamente.</td></tr>
+      <tr><td><code>children</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td>Se puede cambiar dinámicamente: <code>loading ? 'Guardando...' : 'Guardar'</code></td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
@@ -158,11 +184,16 @@
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
         <div class="code-tabs"><button class="code-tab active">TSX — SiafButton.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafButton.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-block" id="code-main-B-06">
+          <button class="copy-btn" onclick="copyCode('code-main-B-06',this)">Copiar</button>
+          <pre><span class="cm">// Ver implementación completa en B-01 (SiafButton.tsx)</span>
+<span class="cm">// Uso con react-hook-form:</span>
+&lt;<span class="tp">SiafButton</span> 
+  <span class="at">variant</span>=<span class="str">"primary"</span> 
+  <span class="at">loading</span>={isSubmitting}
+&gt;
+  {isSubmitting ? <span class="str">'Guardando...'</span> : <span class="str">'Guardar'</span>}
+&lt;/<span class="tp">SiafButton</span>&gt;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +201,44 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
         <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafButton.tsx</code><br><br>
-          <strong>Checklist de entrega para B-06:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafButton } from '@/components/ui/SiafButton'</code>.
+          En el CSS, el <code>.siaf-spinner</code> hereda bordes blancos para botones primary, pero tiene una regla especial para variantes con fondo blanco (secondary, danger, ghost) donde el borde toma un color <code>--pjev-verde-oscuro</code>.
         </div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button class="siaf-btn siaf-btn-primary siaf-btn-loading"><div class="siaf-spinner"></div> Procesando</button></div>
+          <div class="do-desc">Usar la prop loading para evitar doble submit en cualquier operación de API.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><button class="siaf-btn siaf-btn-primary" disabled>Guardar</button></div>
+          <div class="dont-desc">No simplemente deshabilitar el botón sin indicar visualmente que algo está cargando.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div>Múltiples pantallas deshabilitan botones durante el <code>isSubmitting</code> pero no muestran feedback visual dentro del botón.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b05-button-icon.html">B-05 · Button Icon</a>

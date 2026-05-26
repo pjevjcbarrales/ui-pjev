@@ -114,8 +114,7 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Foundations</span> ›
@@ -126,43 +125,89 @@
       <div>
         <div class="elem-id">F-02</div>
         <h1 class="elem-title">Tipografía</h1>
-        <p class="elem-desc">Escala tipográfica, pesos y line-height estándar del sistema.</p>
+        <p class="elem-desc">Escala tipográfica y jerarquía de texto.</p>
         <div class="elem-meta">
           <span class="elem-tag">Foundations</span>
-          <span class="elem-tag tsx">No genera TSX</span>
+          <span class="elem-tag tsx">globals.css</span>
         </div>
       </div>
-      <span class="status-badge nuevo">Nuevo</span>
+      <span class="status-badge nuevo">Documentado</span>
     </div>
 
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Escala tipográfica, pesos y line-height estándar del sistema.</p><p>Esta sección documenta el elemento <strong>F-02 — Tipografía</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>El sistema utiliza la fuente <strong>Inter</strong> de Google Fonts como tipografía principal por su excelente legibilidad en interfaces de datos. Las jerarquías se rigen por clases semánticas.</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <div>
+          <div style="font-size:10px; color:#5A5A5A; margin-bottom:4px; font-family:monospace;">h1 / .pjev-h1 (26px, bold, verde oscuro)</div>
+          <h1 style="font-size:26px; font-weight:700; color:#183125; margin:0;">Sistema de Información</h1>
+        </div>
+        <div>
+          <div style="font-size:10px; color:#5A5A5A; margin-bottom:4px; font-family:monospace;">h2 / .pjev-h2 (18px, bold, verde oscuro)</div>
+          <h2 style="font-size:18px; font-weight:700; color:#183125; margin:0;">Módulo de Contabilidad</h2>
+        </div>
+        <div>
+          <div style="font-size:10px; color:#5A5A5A; margin-bottom:4px; font-family:monospace;">.pjev-body (14px, regular, texto)</div>
+          <p style="font-size:14px; font-weight:400; color:#1A1A1A; margin:0;">Este es un párrafo de texto normal que se utiliza para descripciones largas, instrucciones o contenido principal de las vistas.</p>
+        </div>
+        <div>
+          <div style="font-size:10px; color:#5A5A5A; margin-bottom:4px; font-family:monospace;">.pjev-label (12px, semi-bold, texto)</div>
+          <label style="font-size:12px; font-weight:600; color:#1A1A1A;">Fecha de alta</label>
+        </div>
+        <div>
+          <div style="font-size:10px; color:#5A5A5A; margin-bottom:4px; font-family:monospace;">.pjev-small (12px, regular, texto-muted)</div>
+          <span style="font-size:12px; font-weight:400; color:#5A5A5A;">345 registros encontrados</span>
+        </div>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>.pjev-h1</code></td><td>Clase CSS</td><td><code>26px</code></td><td>Títulos principales de página</td></tr>
+      <tr><td><code>.pjev-h2</code></td><td>Clase CSS</td><td><code>18px</code></td><td>Subtítulos y nombres de paneles</td></tr>
+      <tr><td><code>.pjev-body</code></td><td>Clase CSS</td><td><code>14px</code></td><td>Texto estándar</td></tr>
+      <tr><td><code>.pjev-small</code></td><td>Clase CSS</td><td><code>12px</code></td><td>Metadatos, hints, conteos</td></tr>
+      <tr><td><code>.pjev-label</code></td><td>Clase CSS</td><td><code>12px</code></td><td>Etiquetas de formularios</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — No genera TSX</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// No genera TSX</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX — globals.css</button></div>
+        <div class="code-block" id="code-main-F-02">
+          <button class="copy-btn" onclick="copyCode('code-main-F-02',this)">Copiar</button>
+          <pre><span class="cm">/* Recomendado: import de Inter en el root layout o globals.css */</span>
+<span class="kw">@import</span> <span class="at">url</span>(<span class="str">'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'</span>);
+
+<span class="kw">body</span> {
+  <span class="at">font-family</span>: <span class="str">'Inter'</span>, sans-serif;
+  <span class="at">color</span>: <span class="str">var(--pjev-texto)</span>;
+}</pre>
         </div>
       </div>
     </div>
@@ -170,36 +215,45 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
         <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/</code><br><br>
-          <strong>Checklist de entrega para F-02:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import {  } from '@/components/ui/'</code>.
+          Instalar la fuente en el proyecto Next.js preferentemente usando <code>next/font/google</code>:
+          <br><code>import { Inter } from 'next/font/google'</code>
         </div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><h2 class="pjev-h2" style="font-size:18px;font-weight:bold;color:#183125;">Sección correcta</h2></div>
+          <div class="do-desc">Usar clases semánticas para los títulos.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div style="font-size: 22px; color: #000;">Sección incorrecta</div></div>
+          <div class="dont-desc">No usar tamaños de fuente arbitrarios.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div>Páginas usando <code>h1</code> con el estilo por defecto del navegador.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="f01-tokens.html">F-01 · Tokens CSS</a>

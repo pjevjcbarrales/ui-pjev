@@ -2,10 +2,70 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DG-04 · Mostrar/ocultar cols — UI_PJEV</title>
+<title>DG-04 - Column Toggle - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
+<style>
+  /* Dropdown de columnas */
+  .col-toggle-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .col-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    z-index: 100;
+    background: var(--pjev-blanco);
+    border: 1px solid var(--pjev-borde);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    min-width: 200px;
+    padding: 8px 0;
+    animation: fadeIn 0.12s ease;
+  }
+  .col-dropdown-header {
+    padding: 6px 14px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--pjev-texto-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 1px solid var(--pjev-borde);
+    margin-bottom: 4px;
+  }
+  .col-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--pjev-texto);
+    transition: background 0.1s;
+    user-select: none;
+  }
+  .col-dropdown-item:hover {
+    background: var(--pjev-crema);
+  }
+  .col-dropdown-item input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--pjev-verde-oscuro);
+    cursor: pointer;
+  }
+  .col-dropdown-item.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .col-dropdown-footer {
+    border-top: 1px solid var(--pjev-borde);
+    padding: 8px 14px 4px;
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+</style>
 </head>
 <body>
 
@@ -20,7 +80,7 @@
     <span class="topbar-crumb-sep">›</span>
     <span class="topbar-crumb-item" style="color:rgba(255,255,255,0.55);">Data Grid</span>
     <span class="topbar-crumb-sep">›</span>
-    <span class="topbar-crumb-item active">Mostrar/ocultar cols</span>
+    <span class="topbar-crumb-item active">Mostrar/Ocultar Columnas</span>
   </div>
   <div class="topbar-right">
     <span class="topbar-version">v1.0.0</span>
@@ -89,7 +149,7 @@
       <a class="sidebar-link" href="dg01-grid-base.html">Grid base <span class="sidebar-id">DG-01</span></a>
       <a class="sidebar-link" href="dg02-grid-acciones.html">Grid con acciones <span class="sidebar-id">DG-02</span></a>
       <a class="sidebar-link" href="dg03-columna-sort.html">Columna ordenable <span class="sidebar-id">DG-03</span></a>
-      <a class="sidebar-link" href="dg04-col-toggle.html">Mostrar/ocultar cols <span class="sidebar-id">DG-04</span></a>
+      <a class="sidebar-link active" href="dg04-col-toggle.html">Mostrar/ocultar cols <span class="sidebar-id">DG-04</span></a>
       <a class="sidebar-link" href="dg05-totales.html">Fila de totales <span class="sidebar-id">DG-05</span></a>
       <a class="sidebar-link" href="dg06-paginacion.html">Paginación <span class="sidebar-id">DG-06</span></a>
       <a class="sidebar-link" href="dg07-empty.html">Empty state grid <span class="sidebar-id">DG-07</span></a>
@@ -114,95 +174,103 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Data Grid</span> ›
-      <span>Mostrar/ocultar cols</span>
+      <span>Column Toggle</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">DG-04</div>
-        <h1 class="elem-title">Mostrar/ocultar cols</h1>
-        <p class="elem-desc">Panel para mostrar u ocultar columnas del grid en tiempo real.</p>
+        <h1 class="elem-title">Column Toggle</h1>
+        <p class="elem-desc">Selector de columnas visibles.</p>
         <div class="elem-meta">
           <span class="elem-tag">Data Grid</span>
-          <span class="elem-tag tsx">SiafDataGrid.tsx</span>
+          <span class="elem-tag tsx">ColumnVisibility.tsx</span>
         </div>
       </div>
-      <span class="status-badge nuevo">Nuevo componente</span>
+      <span class="status-badge nuevo">Documentado</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Panel para mostrar u ocultar columnas del grid en tiempo real.</p><p>Esta sección documenta el elemento <strong>DG-04 — Mostrar/ocultar cols</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Permite al usuario elegir qu columnas ver en tablas que tienen demasiada informacin para el ancho de pantalla.</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="padding:16px; background:#fff; border:1px solid #D4C9B5; border-radius:4px; max-width:200px;">
+        <div style="font-size:12px; font-weight:600; margin-bottom:8px;">Columnas</div>
+        <label style="display:flex; gap:8px; font-size:14px; margin-bottom:4px;"><input type="checkbox" checked> ID</label>
+        <label style="display:flex; gap:8px; font-size:14px; margin-bottom:4px;"><input type="checkbox" checked> Nombre</label>
+        <label style="display:flex; gap:8px; font-size:14px;"><input type="checkbox"> Fecha Registro</label>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          
+      <tr><td>N/A</td><td>-</td><td>-</td><td>-</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafDataGrid.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafDataGrid.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - ColumnVisibility.tsx</button></div>
+        <div class="code-block" id="code-main-DG-04">
+          <button class="copy-btn" onclick="copyCode('code-main-DG-04',this)">Copiar</button>
+          <pre>// Utilizando la API de visibility de TanStack Table</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
-      <div class="callout info">
-        <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafDataGrid.tsx</code><br><br>
-          <strong>Checklist de entrega para DG-04:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafDataGrid } from '@/components/ui/SiafDataGrid'</code>.
-        </div>
-      </div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      <div class="callout info"><span class="callout-icon">📋</span><div>Normalmente va en el Toolbar (LC-07).</div></div>
     </div>
 
-    <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Ocultar columnas no crticas por defecto en pantallas pequeas.</div></div>
+          <div class="do-desc">Mantiene la tabla legible.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Scroll horizontal de 20 columnas sin poder ocultarlas.</div></div>
+          <div class="dont-desc">Mala experiencia en laptops.</div>
+        </div>
       </div>
     </div>
 
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div>-</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
-        <a class="foot-nav-link" href="dg03-columna-sort.html">DG-03 · Columna sort</a>
+        <a class="foot-nav-link" href="dg03-columna-sort.html">DG-03 · Columna ordenable</a>
       </div>
       <div class="foot-center">
         UI_PJEV · Sistema de diseño SIAF-PJEV<br>
@@ -210,7 +278,7 @@
       </div>
       <div class="foot-nav" style="align-items:flex-end;">
         <span class="foot-nav-label">Siguiente →</span>
-        <a class="foot-nav-link" href="dg05-totales.html">DG-05 · Totales</a>
+        <a class="foot-nav-link" href="dg05-totales.html">DG-05 · Fila de totales</a>
       </div>
     </div>
 

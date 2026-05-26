@@ -114,8 +114,7 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Base Elements</span> ›
@@ -126,7 +125,7 @@
       <div>
         <div class="elem-id">B-12</div>
         <h1 class="elem-title">Checkbox</h1>
-        <p class="elem-desc">Casilla de verificación con label integrado.</p>
+        <p class="elem-desc">Casilla de selección múltiple o boolean.</p>
         <div class="elem-meta">
           <span class="elem-tag">Base Elements</span>
           <span class="elem-tag tsx">SiafCheckbox.tsx</span>
@@ -138,19 +137,50 @@
     <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Casilla de verificación con label integrado.</p><p>Esta sección documenta el elemento <strong>B-12 — Checkbox</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <p>Utilizado para encender/apagar configuraciones y seleccionar registros en el grid. Puede tener estado parcial (indeterminate).</p>
     </div>
 
     <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--pjev-verde-oscuro);">
+          <span style="font-size:14px;">Inactivo</span>
+        </label>
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+          <input type="checkbox" checked style="width:16px;height:16px;accent-color:var(--pjev-verde-oscuro);">
+          <span style="font-size:14px; color:#183125; font-weight:500;">Activo</span>
+        </label>
+        <label style="display:flex; align-items:center; gap:8px; cursor:not-allowed; opacity:0.6;">
+          <input type="checkbox" disabled style="width:16px;height:16px;">
+          <span style="font-size:14px;">Solo lectura</span>
+        </label>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
     <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripción</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>label</code></td><td><span class="badge-opt">Opcional</span></td><td>-</td><td>Texto clickable junto a la casilla</td></tr>
+      <tr><td><code>indeterminate</code></td><td><span class="badge-opt">Opcional</span></td><td><code>false</code></td><td>Estado semi-seleccionado (para el grid)</td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
     <!-- 4. CÓDIGO -->
@@ -158,11 +188,13 @@
       <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
       <div class="code-wrap">
         <div class="code-tabs"><button class="code-tab active">TSX — SiafCheckbox.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafCheckbox.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-block" id="code-main-B-12">
+          <button class="copy-btn" onclick="copyCode('code-main-B-12',this)">Copiar</button>
+          <pre>&lt;<span class="tp">SiafCheckbox</span>
+  <span class="at">label</span>=<span class="str">"Mantener sesión iniciada"</span>
+  <span class="at">checked</span>={isActive}
+  <span class="at">onChange</span>={(e) =&gt; setIsActive(e.target.checked)}
+/&gt;</pre>
         </div>
       </div>
     </div>
@@ -170,36 +202,42 @@
     <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
+      
       <div class="callout info">
         <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafCheckbox.tsx</code><br><br>
-          <strong>Checklist de entrega para B-12:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafCheckbox } from '@/components/ui/SiafCheckbox'</code>.
-        </div>
+        <div>El estado indeterminate en React solo se puede asignar mediante una referencia al elemento del DOM (<code>ref.current.indeterminate = true</code>) dentro de un <code>useEffect</code>.</div>
       </div>
+    
     </div>
 
     <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">✓ Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><label style="display:flex; gap:8px;"><input type="checkbox"><span>Opción</span></label></div>
+          <div class="do-desc">Envolver el input en el label para que el texto sea clickeable.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">✕ Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><input type="checkbox"> <span>Opción</span></div>
+          <div class="dont-desc">No colocar el texto suelto, dificulta el clic en pantallas táctiles o mouses.</div>
+        </div>
       </div>
     </div>
 
     <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      
+      <div class="deprecated-row">
+        <div><span class="callout-icon">⚠</span></div>
+        <div>Checkboxes sueltos en el grid sin label asociado.</div>
+      </div>
+    
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="b11-textarea.html">B-11 · Textarea</a>

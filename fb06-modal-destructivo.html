@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FB-06 · Modal — Destructivo — UI_PJEV</title>
+<title>FB-06 - Modal Destructivo - UI_PJEV</title>
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
@@ -114,92 +114,109 @@
   </nav>
 
   <main class="doc-main">
-  <div class="doc-main-inner">
-
+  <div class="doc-main-inner">\n
     <div class="elem-breadcrumb">
       <a href="index.html">UI_PJEV</a> ›
       <span>Feedback</span> ›
-      <span>Modal — Destructivo</span>
+      <span>Modal Destructivo</span>
     </div>
 
     <div class="elem-header">
       <div>
         <div class="elem-id">FB-06</div>
-        <h1 class="elem-title">Modal — Destructivo</h1>
-        <p class="elem-desc">Diálogo de confirmación destructiva. Para cancelaciones, bajas, rechazos.</p>
+        <h1 class="elem-title">Modal Destructivo</h1>
+        <p class="elem-desc">Modal estndar para confirmar eliminacin.</p>
         <div class="elem-meta">
           <span class="elem-tag">Feedback</span>
           <span class="elem-tag tsx">SiafModal.tsx</span>
         </div>
       </div>
-      <span class="status-badge migrar">Migrar CancelModal.tsx</span>
+      <span class="status-badge nuevo">Nuevo componente</span>
     </div>
 
-    <!-- 1. DESCRIPCIÓN -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">1</span> Descripción</div>
-      <p>Diálogo de confirmación destructiva. Para cancelaciones, bajas, rechazos.</p><p>Esta sección documenta el elemento <strong>FB-06 — Modal — Destructivo</strong> del sistema de diseño SIAF-PJEV. Incluye las especificaciones visuales, código de implementación e instrucciones para Daryl.</p>
+      <div class="section-title"><span class="section-num">1</span> Descripcin</div>
+      <p>Versin de confirmacin para borrado de datos. Usa estilos de alerta visual (rojo) para prevenir errores.</p>
     </div>
 
-    <!-- 2. PREVIEW -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">2</span> Preview</div>
-      <div class="callout info"><span class="callout-icon">🔧</span><div>Preview en construcción.</div></div>
+      <div class="preview-box">
+        <div class="preview-bar">
+          <span class="preview-bar-label">Preview interactivo</span>
+          <span class="preview-bar-tag">Usa clases .siaf-* reales</span>
+        </div>
+        <div class="preview-area ">
+          
+      <div style="position:relative; background:#0004; min-height:220px; border-radius:8px; display:flex; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:28px; max-width:400px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.25);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5e111a" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            <h3 style="font-size:16px; font-weight:700; color:#5e111a; margin:0;">Eliminar registro</h3>
+          </div>
+          <p style="font-size:13px; color:#5A5A5A; margin-bottom:20px;">Ests seguro de eliminar este elemento? Esta accin no se puede deshacer.</p>
+          <div style="display:flex; gap:8px; justify-content:flex-end;">
+            <button class="siaf-btn siaf-btn-secondary siaf-btn-sm">Cancelar</button>
+            <button class="siaf-btn siaf-btn-danger siaf-btn-sm">S, eliminar</button>
+          </div>
+        </div>
+      </div>
+    
+        </div>
+      </div>
     </div>
 
-    <!-- 3. PROPIEDADES -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">3</span> Tokens / Propiedades</div>
-      <div class="callout info"><span class="callout-icon">ℹ</span><div>Ver sección de código para referencia completa de props.</div></div>
+      <table class="props-table">
+        <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descripcin</th></tr></thead>
+        <tbody>
+          
+      <tr><td><code>variant</code></td><td><span class="badge-req">Requerido</span></td><td>-</td><td><code>'destructive'</code></td></tr>
+    
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4. CÓDIGO -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">4</span> Código de implementación</div>
+      <div class="section-title"><span class="section-num">4</span> Cdigo de implementacin</div>
       <div class="code-wrap">
-        <div class="code-tabs"><button class="code-tab active">TSX — SiafModal.tsx</button></div>
-        <div class="code-block" id="code-main">
-          <button class="copy-btn" onclick="copyCode('code-main',this)">Copiar</button>
-          <pre><span class='cm'>// SiafModal.tsx</span>
-<span class='cm'>// Implementación completa en construcción</span>
-<span class='cm'>// Ver preview de la sección 2 como referencia visual exacta</span></pre>
+        <div class="code-tabs"><button class="code-tab active">TSX - SiafModal.tsx</button></div>
+        <div class="code-block" id="code-main-FB-06">
+          <button class="copy-btn" onclick="copyCode('code-main-FB-06',this)">Copiar</button>
+          <pre>&lt;<span class="tp">SiafModal</span> <span class="at">variant</span>=<span class="str">"destructive"</span> /&gt;</pre>
         </div>
       </div>
     </div>
 
-    <!-- 5. INSTRUCCIONES PARA DARYL -->
     <div class="doc-section">
-      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl — qué construir</div>
-      <div class="callout info">
-        <span class="callout-icon">📋</span>
-        <div>
-          <strong>Archivo a crear:</strong> <code>components/ui/SiafModal.tsx</code><br><br>
-          <strong>Checklist de entrega para FB-06:</strong><br>
-          1. El componente renderiza exactamente como el preview de la sección 2.<br>
-          2. Todas las props documentadas en la sección 3 están implementadas.<br>
-          3. Los estilos usan exclusivamente variables <code>--pjev-*</code> de <code>_pjev-tokens.css</code>.<br>
-          4. El componente tiene JSDoc en cada prop.<br>
-          5. Cristian puede importarlo con <code>import { SiafModal } from '@/components/ui/SiafModal'</code>.
-        </div>
-      </div>
+      <div class="section-title"><span class="section-num">5</span> Instrucciones para Daryl - qu construir</div>
+      
+      <div class="callout info"><span class="callout-icon">📋</span><div>Asegurarse de que el botn primario del modal use la clase <code>.siaf-btn-danger</code>.</div></div>
+    
     </div>
 
-    <!-- 6. DO / DON'T -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">6</span> Do / Don't</div>
-      <div class="callout info">
-        <span class="callout-icon">ℹ</span>
-        <div>Ver sección de descripción para reglas de uso.</div>
+      <div class="do-dont">
+        <div class="do-card">
+          <div class="do-head">Correcto</div>
+          <div class="do-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Eliminar definitivo</div></div>
+          <div class="do-desc">Usar botn rojo para que sea evidente.</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-head">Incorrecto</div>
+          <div class="dont-body" style="align-items:center;justify-content:center;padding:32px 20px;"><div>Eliminar con botn azul</div></div>
+          <div class="dont-desc">Usar estilo primario normal para borrar.</div>
+        </div>
       </div>
     </div>
 
-    <!-- 7. DEPRECADOS -->
     <div class="doc-section">
       <div class="section-title"><span class="section-num">7</span> Patrones deprecados en el sistema actual</div>
-      <div class="callout info"><span class="callout-icon">✓</span><div>No se detectaron patrones deprecados para este elemento.</div></div>
+      <div class="deprecated-row"><div>CancelModal actual.</div></div>
     </div>
-
-    <div class="doc-footer">
+\n    <div class="doc-footer">
       <div class="foot-nav">
         <span class="foot-nav-label">← Anterior</span>
         <a class="foot-nav-link" href="fb05-modal-confirm.html">FB-05 · Modal Confirm</a>
